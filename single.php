@@ -1,0 +1,1 @@
+<?php get_template_part('pages/single', get_post_type()); ?>

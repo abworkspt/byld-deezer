@@ -1,0 +1,87 @@
+#sociedade-manifesto {
+    margin-bottom: 160px;
+
+    @media all and (max-width: 768px) {
+        margin-bottom: 70px;
+    }
+    
+    p {
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 24px;
+        color: $orange;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 58px;
+        font-weight: 300;
+        line-height: 62px;
+        color: $green;
+        margin-bottom: 70px;
+
+        @media all and (max-width: 768px) {
+            font-size: 35px;
+            line-height: 40px;
+            margin-bottom: 30px;
+
+            br {
+                content: '';
+
+                &::after {
+                    content: ' ';
+                }
+            }
+        }
+    }
+
+    .row {
+        display: flex;
+        justify-content: flex-end;
+
+        @media all and (max-width: 768px) {
+            display: block;
+        }
+
+        .col {
+            width: 57%;
+            font-size: 19px;
+            font-weight: 300;
+            line-height: 24px;
+            color: #9A9A9A;
+
+            @media all and (max-width: 768px) {
+                width: 100%;
+                font-size: 16px;
+            }
+
+            a {
+                font-size: 15px;
+                font-weight: 300;
+                color: $green;
+                text-decoration: none;
+                border: 1px solid $green;
+                border-radius: 100px;
+                padding: 13px 25px;
+                display: inline-block;
+                margin-top: 30px;
+
+                svg {
+                    margin-left: 8px;
+                }
+
+                &:hover {
+                    background: $green;
+                    color: #fff;
+
+                    svg {
+                        path {
+                            fill: #fff;
+                            stroke: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

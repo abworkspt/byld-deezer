@@ -1,0 +1,125 @@
+#insigths-list {
+    padding-top: 40px;
+    margin-bottom: 90px;
+
+    .item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #D6D6D6;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+
+        @media all and (max-width: 768px) {
+            display: block;
+        }
+
+        .date {
+            font-size: 15px;
+            font-weight: 300;
+            color: $orange;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: $green;
+            font-size: 30px;
+            font-weight: 300;
+            line-height: 34px;
+            margin-bottom: 15px;
+
+            @media all and (max-width: 768px) {
+                font-size: 24px;
+                font-weight: 300;
+                line-height: 29px;
+            }
+        }
+
+        .summary {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #9A9A9A;
+        }
+
+        .col {
+            &.l {
+                max-width: 600px;
+                position: relative;
+
+                .mobile {
+                    display: none;
+
+                    @media all and (max-width: 768px) {
+                        display: block;
+                        max-width: 100%;
+                        margin-bottom: 30px;
+                        border-radius: 10px;
+                    }
+                }
+
+                a {
+                    color: $orange;
+                    background-color: #EFE8DF;
+                    border-radius: 100px;
+                    font-size: 15px;
+                    padding: 15px 20px;
+                    text-decoration: none;
+                    margin-top: 34px;
+                    display: inline-block;
+                    position: absolute;
+                    left: auto;
+                    bottom: 0;
+
+                    @media all and (max-width: 1024px) {
+                        position: relative;
+                        left: auto;
+                        bottom: auto;
+                        margin-top: 20px;
+                    }
+
+                    svg {
+                        margin-left: 11px;
+                    }
+
+                    &:hover {
+                        background: $orange;
+                        color: #fff;
+
+                        svg {
+                            path {
+                                fill: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.r {
+
+                @media all and (max-width: 768px) {
+                    display: none;
+                }
+
+                img {
+                    border-radius: 10px;
+                    margin-left: 30px;
+
+                    @media all and (max-width: 1200px) {
+                        max-width: 500px;                        
+                    }
+
+                    @media all and (max-width: 1024px) {
+                        max-width: 400px;
+                    }
+
+                    @media all and (max-width: 768px) {
+                        margin-left: 0;
+                        max-width: 100%;
+                        margin-top: 30px;
+                    }
+            
+                }
+            }
+        }
+    }
+}

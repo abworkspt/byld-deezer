@@ -1,0 +1,86 @@
+#home-contacto {
+    text-align: center;
+    background-color: $green;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+
+    @media all and (max-width: 768px) {
+        height: 400px;
+        margin-top: 80px;
+    }
+
+    .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+
+        @media all and (max-width: 768px) {
+            width: 90%;
+        }
+
+        p {
+            font-size: 19px;
+            font-weight: 300;
+            line-height: 24px;
+            color: $orange;
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 58px;
+            font-weight: 300;
+            line-height: 66px;
+            color: #fff;
+            max-width: 585px;
+            margin: 0 auto 35px auto;
+
+            @media all and (max-width: 768px) {
+                font-size: 35px;
+                line-height: 40px;
+            }
+        }
+
+        a {
+            color: $green;
+            background-color: #fff;
+            border-radius: 100px;
+            font-size: 15px;
+            padding: 15px 20px;
+            text-decoration: none;
+            margin-top: 34px;
+            display: inline-block;
+            transition: all .3s;
+
+            svg {
+                margin-left: 11px;
+            }
+
+            &:hover {
+                background: $green;
+                color: #fff;
+
+                svg {
+                    path {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .imagegrow {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        z-index: 1;
+        transform-origin: bottom center;
+        transform: scale(0);
+        background-position: center;
+    }
+}

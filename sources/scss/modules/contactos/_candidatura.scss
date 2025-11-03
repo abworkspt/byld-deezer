@@ -1,0 +1,113 @@
+#contactos-candidaturas {
+    color: #fff;
+    margin-bottom: 50px;
+
+    .container {
+        border-radius: 10px;
+        overflow: hidden;
+
+        .video {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $green;
+                z-index: 1;
+                opacity: .8;
+            }
+
+            video {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 70px 0;
+            max-width: 550px;
+            margin: auto;
+
+            @media all and (max-width: 768px) {
+                width: 90%;
+                margin: auto;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 300;
+                line-height: 24px;
+                margin-bottom: 15px;
+
+                @media all and (max-width: 768px) {
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+            }
+
+            h2 {
+                font-size: 58px;
+                font-weight: 300;
+                line-height: 60px;
+                margin-bottom: 15px;
+
+                @media all and (max-width: 768px) {
+                    font-size: 35px;
+                    line-height: 40px;
+
+                    br {
+                        content: '';
+
+                        &::after {
+                            content: ' ';
+                        }
+                    }
+                }
+            }
+
+            a {
+                font-size: 15px;
+                font-weight: 300;
+                background: $green;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 100px;
+                padding: 13px 25px;
+                display: inline-block;
+                margin-top: 15px;
+
+                svg {
+                    margin-left: 8px;
+                }
+
+                &:hover {
+                    background: #fff;
+                    color: $green;
+
+                    svg {
+                        path {
+                            fill: $green;
+                            stroke: $green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

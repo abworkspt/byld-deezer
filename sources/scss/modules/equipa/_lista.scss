@@ -1,0 +1,114 @@
+#equipa-list {
+    margin-top: 80px;
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: none;
+        gap: 0 10px;
+
+        @media all and (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .item {
+            margin-bottom: 70px;
+
+            @media all and (max-width: 768px) {
+                margin-bottom: 20px;
+            }
+            
+            .image {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 15px;
+
+                .color {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    transition: opacity .3s;
+
+                    @media all and (max-width: 768px) {
+                        opacity: 1 !important;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                }
+
+                a {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: relative;
+                    bottom: auto;
+                    right: auto;
+                }
+            }
+
+            .plus {
+                width: 33px !important;
+                height: 33px !important;
+                border-radius: 50%;
+                background: #fff;
+                position: absolute !important;
+                right: 20px !important;
+                bottom: 20px !important;
+                opacity: 0;
+                transition: opacity .3s;
+
+                svg {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &:hover {
+                .image {
+                    .color {
+                        opacity: 1;
+                    }
+                }
+
+                .plus {
+                    opacity: 1;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h3 {
+            font-size: 19px;
+            font-weight: 300;
+            line-height: 24px;
+            color: $green;
+
+            @media all and (max-width: 768px) {
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 5px;
+            }
+    
+        }
+
+        p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #9A9A9A;
+
+            @media all and (max-width: 768px) {
+                font-size: 13px;
+            }
+        }
+    }
+}

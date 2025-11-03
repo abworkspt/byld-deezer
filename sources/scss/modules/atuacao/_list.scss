@@ -1,0 +1,113 @@
+#atuacao-list {
+    .items {
+        margin-top: 30px;
+
+        .item {
+
+            .top {
+                padding: 18px 0px;
+                position: relative;
+                cursor: pointer;
+                border-bottom: 1px solid #D6D6D6;
+
+                h3 {
+                    font-size: 37px;
+                    font-weight: 300;
+                    line-height: 62px;
+                    color: $green;
+
+                    &.claro {
+                        color: #fff;
+                    }
+
+                    @media all and (max-width: 768px) {
+                        font-size: 15px;
+                        line-height: 30px;
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    right: 25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    transition: all .5s;
+
+                    @media all and (max-width: 768px) {
+                        width: 30px;
+                        right: 0;
+                    }
+                }
+
+                &.open {
+
+                    h3 {
+                        color: $orange;
+                    }
+
+                    svg {
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+            }
+
+            .content {
+                position: relative;
+                padding: 25px 0;
+                overflow: hidden;
+                transition: all .5s;
+
+                .inside {
+                    width: 100%;
+                }
+
+                &.nopadding {
+                    padding: 0;
+                    height: 0;
+                }
+
+                p {
+                    font-size: 19px;
+                    font-weight: 300;
+                    line-height: 24px;
+                    color: #9A9A9A;
+                    max-width: 783px;
+                    margin-top: 20px;
+
+                    @media all and (max-width: 768px) {
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
+                }
+
+                a {
+                    font-size: 15px;
+                    font-weight: 300;
+                    color: $green;
+                    text-decoration: none;
+                    border: 1px solid $green;
+                    border-radius: 100px;
+                    padding: 13px 25px;
+                    display: inline-block;
+                    margin-top: 30px;
+
+                    svg {
+                        margin-left: 8px;
+                    }
+
+                    &:hover {
+                        background: $green;
+                        color: #fff;
+
+                        svg {
+                            path {
+                                fill: #fff;
+                                stroke: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

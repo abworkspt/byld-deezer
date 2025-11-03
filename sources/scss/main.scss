@@ -1,0 +1,63 @@
+$maxwidth: 1920px;
+$green: #002B31;
+$orange: #F15735;
+$yellow: #D6E595;
+
+@import 'utils/reset';
+@import 'utils/fonts';
+@import 'modules/common/footer';
+@import 'modules/common/header';
+@import 'modules/common/menu';
+@import 'modules/homepage/topo.scss';
+@import 'modules/homepage/atuacao.scss';
+@import 'modules/homepage/insights.scss';
+@import 'modules/homepage/sociedade.scss';
+@import 'modules/homepage/contacto.scss';
+@import 'modules/equipa/colunas';
+@import 'modules/equipa/lista';
+@import 'modules/equipa/topo';
+@import 'modules/advogado/advogados';
+@import 'modules/atuacao/block';
+@import 'modules/atuacao/list';
+@import 'modules/atuacao/topo';
+@import 'modules/sociedade/topo';
+@import 'modules/sociedade/manifesto';
+@import 'modules/sociedade/ticker';
+@import 'modules/sociedade/contacto';
+@import 'modules/sociedade/codigos';
+@import 'modules/sociedade/responsabilidade';
+@import 'modules/contactos/top';
+@import 'modules/contactos/form';
+@import 'modules/contactos/candidatura';
+@import 'modules/contactos/local';
+@import 'modules/insigths/contacto';
+@import 'modules/insigths/list';
+@import 'modules/insigths/topo';
+@import 'modules/insight/insight';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'font1';
+    background-color: #F8F9F7;
+    color: $green;
+
+    .container {
+        width: 95%;
+        max-width: $maxwidth;
+        margin: auto;
+        position: relative;
+
+        @media all and (max-width: 768px) {
+            width: 90%;
+        }
+    }
+
+    a {
+        &:hover {
+            transition: all .3s;
+        }
+    }
+}

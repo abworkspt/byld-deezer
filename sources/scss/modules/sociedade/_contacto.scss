@@ -1,0 +1,131 @@
+#sociedade-contacto {
+    margin-top: 30px;
+
+    .container {
+        display: flex;
+
+        @media all and (max-width: 768px) {
+            display: block;
+        }
+
+        .col {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+
+            &.l {
+                height: 315px;
+                width: calc(43% - 20px);
+                margin-right: 20px;
+
+                @media all and (max-width: 768px) {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 20px;
+                }
+
+                .video {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: $green;
+                        z-index: 1;
+                        opacity: .8;
+                    }
+
+                    video {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .inside {
+                    padding: 40px;
+                    position: relative;
+                    z-index: 10;
+                    height: calc(100% - 80px);
+
+                    @media all and (max-width: 768px) {
+                        padding: 30px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                        font-weight: 300;
+                        line-height: 24px;
+                        color: #fff;
+                        margin-bottom: 12px;
+                    }
+
+                    h2 {
+                        font-size: 37px;
+                        font-weight: 300;
+                        line-height: 42px;
+                        color: $yellow;
+
+                        @media all and (max-width: 768px) {
+                            font-size: 30px;
+                            line-height: 36px;
+                            max-width: 250px;
+                        }
+                    }
+
+                    a {
+                        width: 33px;
+                        height: 33px;
+                        border: 1px solid #fff;
+                        border-radius: 50%;
+                        position: absolute;
+                        right: 40px;
+                        bottom: 40px;
+
+                        svg {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+
+                        &:hover {
+                            background: #fff;
+
+                            svg {
+                                path {
+                                    fill: $green;
+                                    stroke: $green;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.r {
+                width: 57%;
+
+                @media all and (max-width: 768px) {
+                    width: 100%;
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

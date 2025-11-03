@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'font1';
+    src: url('fonts/twklausanne-300.woff2') format('woff2'),
+        url('fonts/twklausanne-300.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@mixin text-h1 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 64px;
+}
+
+@mixin text-h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+@mixin text-h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 32px;
+}
+
+@mixin text-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+@mixin text-small {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+@mixin text-link {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+@mixin text-small-link {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+@mixin text-caption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+@mixin text-button {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+@mixin text-label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+@mixin text-caps {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+}
+
+@mixin text-small-caps {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    text-transform: uppercase;
+}

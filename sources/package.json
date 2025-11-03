@@ -1,0 +1,21 @@
+{
+  "name": "abproject",
+  "version": "0.0.0",
+  "engines": {
+    "node": "16.13.x"
+  },
+  "private": true,
+  "main": "server.js",
+  "devDependencies": {
+    "cssnano": "^5.0.16",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.49.0"
+  },
+  "scripts": {}
+}
