@@ -70,14 +70,14 @@ function change_menu_names() {
 	foreach($menu as $key => $item) {
 		switch($item[0]) {
 			case 'Activity Log': 
-				$menu[$key][0] = 'Actividade';
+				$menu[$key][0] = 'Activity';
 				break;
 			case 'Campos personalizados': 
 			case 'Custom Fields': 
 				$menu[$key][0] = 'Campos';
 				break;
 			case 'Registo de actividade': 
-				$menu[$key][0] = 'Atividade';
+				$menu[$key][0] = 'Activity';
 				break;
 			case 'WP Mail SMTP': 
 				$menu[$key][0] = 'SMTP';

@@ -1,18 +1,36 @@
 {
-    "key": "group_6770c17feeeb9",
-    "title": "Advogado",
+    "key": "group_69088a17eb6af",
+    "title": "Phase 1",
     "fields": [
         {
-            "key": "field_6770c29c3e5c7",
-            "label": "Imagem Cor",
-            "name": "imagem_cor",
+            "key": "field_69088a1860a72",
+            "label": "Header",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_69088dd24784f",
+            "label": "VW Logo",
+            "name": "header_vw_logo",
             "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -29,16 +47,16 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6770c2543e5c6",
-            "label": "Imagem Preto e Branco",
-            "name": "imagem_preto_e_branco",
+            "key": "field_69088a3160a73",
+            "label": "Background Image",
+            "name": "header_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -55,9 +73,72 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_6770c1803e5bf",
-            "label": "Cargo",
-            "name": "cargo",
+            "key": "field_69088dfe47850",
+            "label": "Links",
+            "name": "header_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_69088e0a47851",
+                    "label": "Link",
+                    "name": "link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "allow_in_bindings": 0,
+                    "parent_repeater": "field_69088dfe47850"
+                }
+            ]
+        },
+        {
+            "key": "field_6908975e5e046",
+            "label": "Text Left",
+            "name": "header_text_left",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6908976b5e047",
+            "label": "Text Right",
+            "name": "header_text_right",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -76,9 +157,9 @@
             "append": ""
         },
         {
-            "key": "field_6770c1b03e5c0",
-            "label": "Idiomas",
-            "name": "idiomas",
+            "key": "field_690897825e048",
+            "label": "Button Label",
+            "name": "header_button_label",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -97,11 +178,11 @@
             "append": ""
         },
         {
-            "key": "field_6770c1f33e5c2",
-            "label": "Áreas de Prática",
-            "name": "areas_de_pratica",
+            "key": "field_690897935e049",
+            "label": "Event Date",
+            "name": "hader_event_date",
             "aria-label": "",
-            "type": "text",
+            "type": "date_time_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -110,79 +191,19 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6770c2083e5c3",
-            "label": "Email",
-            "name": "email",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6770c22b3e5c5",
-            "label": "LinkedIn",
-            "name": "linkedin",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
+            "display_format": "d\/m\/Y g:i a",
+            "return_format": "d\/m\/Y g:i a",
+            "first_day": 1,
+            "default_to_current_date": 0,
             "allow_in_bindings": 0
-        },
-        {
-            "key": "field_6770c2143e5c4",
-            "label": "texto",
-            "name": "texto",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 1,
-            "tabs": "all",
-            "toolbar": "basic_01",
-            "media_upload": 0,
-            "delay": 0
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "advogado"
+                "value": "pages\/phase1.php"
             }
         ]
     ],
@@ -191,23 +212,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "excerpt",
-        "discussion",
-        "comments",
-        "revisions",
-        "slug",
-        "author",
-        "format",
-        "page_attributes",
-        "featured_image",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
+    "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1735581768
+    "display_title": "",
+    "modified": 1762171253
 }

@@ -258,17 +258,40 @@ function show_welcome_panel() {
         update_user_meta( $user_id, 'show_welcome_panel', 1 );
 }
 
-// *******************************************************************************	
-// ADD MIME TYPE *****************************************************************
+// *******************************************************************************
+// ADD MIME TYPES ****************************************************************
 // *******************************************************************************
 
-function my_custom_mime_types( $mimes ) { 
-	$mimes['svg'] = 'image/svg';
-	$mimes['ico'] = 'image/x-icon';
-	
-	return $mimes;
+function allow_svg_json_uploads($upload_mimes)
+{
+    // Permitir apenas para administradores
+    if (current_user_can('administrator')) {
+        $upload_mimes['svg']  = 'image/svg+xml';
+        $upload_mimes['json'] = 'application/json';
+    }
+    return $upload_mimes;
 }
-add_filter( 'upload_mimes', 'my_custom_mime_types' );
+add_filter('upload_mimes', 'allow_svg_json_uploads');
+
+// Verificação de tipo MIME segura para o WordPress 5.1+
+// Garante que SVG e JSON passem na checagem.
+function fix_svg_json_mime_type($data, $file, $filename, $mimes)
+{
+    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+    if ($ext === 'svg') {
+        $data['ext']  = 'svg';
+        $data['type'] = 'image/svg+xml';
+    }
+
+    if ($ext === 'json') {
+        $data['ext']  = 'json';
+        $data['type'] = 'application/json';
+    }
+
+    return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'fix_svg_json_mime_type', 10, 4);
 
 // *******************************************************************************	
 // ADD LOGOUT LINK ***************************************************************

@@ -1,10 +1,64 @@
 @font-face {
-    font-family: 'font1';
-    src: url('fonts/twklausanne-300.woff2') format('woff2'),
-        url('fonts/twklausanne-300.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'head regular';
+  src: url('fonts/VWHeadWeb-Regular.woff2') format('woff2'),
+       url('fonts/VWHeadWeb-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'head bold';
+  src: url('fonts/VWHeadWeb-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'head extrabold';
+  src: url('fonts/VWHeadWeb-ExtraBold.woff2') format('woff2'),
+       url('fonts/VWHeadWeb-ExtraBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'head light';
+  src: url('fonts/VWHeadWeb-Light.woff2') format('woff2'),
+       url('fonts/VWHeadWeb-Light.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'text regular';
+  src: url('fonts/VWTextWeb-Regular.woff2') format('woff2'),
+       url('fonts/VWTextWeb-Regular.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'text bold';
+  src: url('fonts/VWTextWeb-Bold.woff2') format('woff2'),
+       url('fonts/VWTextWeb-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'text light';
+  src: url('fonts/VWTextWeb-Light.woff2') format('woff2'),
+       url('fonts/VWTextWeb-Light.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @mixin text-h1 {
