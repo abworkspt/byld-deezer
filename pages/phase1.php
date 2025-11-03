@@ -6,6 +6,8 @@
 if (have_posts()) :
     while (have_posts()) : the_post();
         $pageid = get_the_ID();
+
+        //HEADER
         $header_image = get_field('header_image', $pageid);
         $header_vw_logo = get_field('header_vw_logo', $pageid);
         $header_links = get_field('header_links', $pageid);
@@ -13,11 +15,39 @@ if (have_posts()) :
         $header_text_right = get_field('header_text_right', $pageid);
         $header_button_label = get_field('header_button_label', $pageid);
         $hader_event_date = get_field('hader_event_date', $pageid);
+
+        //PUB1
+        $pub1_background_image = get_field('pub1_background_image', $pageid);
+        $pub1_text_left = get_field('pub1_text_left', $pageid);
+        $pub1_text_right = get_field('pub1_text_right', $pageid);
+
+        //INFO
+        $info_title = get_field('info_title', $pageid);
+        $info_text = get_field('info_text', $pageid);
+        $info_button = get_field('info_button', $pageid);
+
+        //PRIZES
+        $prizes_title = get_field('prizes_title', $pageid);
+        $prizes_items = get_field('prizes_items', $pageid);
+
+        //HOW
+        $how_image = get_field('how_image', $pageid);
+        $how_title = get_field('how_title', $pageid);
+        $how_button = get_field('how_button', $pageid);
+        $how_info = get_field('how_info', $pageid);
+
+        //PUB2
+        $pub2_image = get_field('pub2_image', $pageid);
+        $pub2_title = get_field('pub2_title', $pageid);
+        $pub2_text = get_field('pub2_text', $pageid);
+        $pub2_link = get_field('pub2_link', $pageid);
+
     endwhile;
 endif;
 ?>
 
-<section id="phase1">
+<section id="phase1" data-control="PHASE1">
+
     <section class="header">
         <div class="container">
             <div class="menu">
@@ -30,15 +60,96 @@ endif;
                     </ul>
                 <?php } ?>
             </div>
-            <img class="bg" src="<?php echo $header_image['url']; ?>" />
+            <div class="bg">
+                <img src="<?php echo $header_image['url']; ?>" />
+            </div>
+
             <div class="info">
                 <div class="l">
                     <p><?php echo $header_text_left; ?></p>
                 </div>
                 <div class="r">
                     <p><?php echo $header_text_right; ?></p>
-                    <div class="countdown"><?php echo $hader_event_date; ?></div>
+                    <div class="countdown" data-date="<?php echo $hader_event_date; ?>"></div>
                     <a class="button" href="#"><?php echo $header_button_label; ?></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pub1">
+        <div class="container">
+            <img class="bg" src="<?php echo $pub1_background_image['url']; ?>" alt="" />
+            <div class="text">
+                <div class="l"><?php echo $pub1_text_left; ?></div>
+                <div class="r"><?php echo $pub1_text_right; ?></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="container">
+            <div class="l"><?php echo $info_title; ?></div>
+            <div class="r">
+                <?php echo $info_text; ?>
+                <a class="button invert" href="#"><?php echo $info_button; ?></a>
+            </div>
+        </div>
+
+        <div class="line"></div>
+    </section>
+
+    <section class="prizes">
+        <div class="container">
+            <h2><?php echo $prizes_title; ?></h2>
+            <div class="items">
+                <?php foreach ($prizes_items as $item) { ?>
+                    <div class="item">
+                        <img src="<?php echo $item['image']['url']; ?>" alt="" />
+                        <p><?php echo $item['text']; ?></p>
+                        <h3><?php echo $item['title']; ?></h3>
+                    </div>
+                <?php } ?>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="how">
+        <div class="bg">
+            <img src="<?php echo $how_image['url']; ?>" alt="" />
+        </div>
+
+        <div class="container">
+            <div class="top">
+                <h2><?php echo $how_title; ?></h2>
+            </div>
+            <div class="bot">
+                <div class="infos">
+                    <?php foreach ($how_info as $info) { ?>
+                        <div class="info">
+                            <h3><?php echo $info['title']; ?></h3>
+                            <p><?php echo $info['text']; ?></p>
+                        </div>
+                    <?php } ?>
+                </div>
+                <a class="button"><?php echo $how_button; ?></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pub2">
+        <div class="container">
+            <img src="<?php echo $pub2_image['url']; ?>" alt="" />
+            <div class="content">
+                <h2><?php echo $pub2_title; ?></h2>
+                <div class="text">
+                    <?php echo $pub2_text; ?>
+                    <?php if($pub2_link) { ?>
+                        <a class="button invert white" href="<?php echo $pub2_link['url']; ?>">
+                            <?php echo $pub2_link['title']; ?>
+                        </a>    
+                    <?php } ?>
                 </div>
             </div>
         </div>

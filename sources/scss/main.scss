@@ -1,9 +1,12 @@
-$maxwidth: 1440px;
+$maxwidth_big: 1920px;
+$maxwidth_small: 1370px;
 $yellow: #FFFB00;
 $blue: #11192E;
+$white: #EBE5DC;
 
 @import 'utils/reset';
 @import 'utils/fonts';
+@import 'common/footer';
 @import 'pages/phase1';
 
 html {
@@ -12,11 +15,11 @@ html {
 
 body {
     font-family: 'text regular';
-    background-color: #F8F9F7;
+    background-color: $yellow;
 
     .container {
         width: 95%;
-        max-width: $maxwidth;
+        max-width: $maxwidth_small;
         margin: auto;
         position: relative;
 
@@ -39,6 +42,28 @@ body {
         &:hover {
             background: $blue;
             color: $yellow;
+        }
+
+        &.invert {
+            background: $blue;
+            color: $yellow;
+            border: 1px solid $blue;
+
+            &:hover {
+                background: $yellow;
+                color: $blue;
+            }
+        }
+
+        &.white {
+            background: $blue;
+            color: $yellow;
+            border: 1px solid $blue;
+
+            &:hover {
+                background: $white;
+                color: $blue;
+            }
         }
     }
 
