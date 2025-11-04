@@ -9,6 +9,7 @@ if (have_posts()) :
 
         //HEADER
         $header_image = get_field('header_image', $pageid);
+        $header_video = get_field('header_video', $pageid);
         $header_vw_logo = get_field('header_vw_logo', $pageid);
         $header_links = get_field('header_links', $pageid);
         $header_text_left = get_field('header_text_left', $pageid);
@@ -18,6 +19,7 @@ if (have_posts()) :
 
         //PUB1
         $pub1_background_image = get_field('pub1_background_image', $pageid);
+        $pub1_background_image_mobile = get_field('pub1_background_image_mobile', $pageid);
         $pub1_text_left = get_field('pub1_text_left', $pageid);
         $pub1_text_right = get_field('pub1_text_right', $pageid);
 
@@ -32,6 +34,7 @@ if (have_posts()) :
 
         //HOW
         $how_image = get_field('how_image', $pageid);
+        $how_image_mobile = get_field('how_image_mobile', $pageid);
         $how_title = get_field('how_title', $pageid);
         $how_button = get_field('how_button', $pageid);
         $how_info = get_field('how_info', $pageid);
@@ -51,18 +54,32 @@ endif;
     <section class="header">
         <div class="container">
             <div class="menu">
-                <img class="logo" src="<?php echo $header_vw_logo['url']; ?>" />
+
                 <?php if ($header_links) { ?>
                     <ul>
                         <?php foreach ($header_links as $item) { ?>
-                            <li><a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
+
+                            <?php if ($item['link']['title'] == 'home') { ?>
+                                <li><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
+                            <?php } else { ?>
+                                <li><a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
+                            <?php } ?>
                         <?php } ?>
                     </ul>
                 <?php } ?>
             </div>
-            <div class="bg">
-                <img src="<?php echo $header_image['url']; ?>" />
-            </div>
+
+            <?php if ($header_video) { ?>
+                <div class="bg">
+                    <video preload="metadata" muted playsinline loop autoplay>
+                        <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
+                    </video>
+                </div>
+            <?php } else { ?>
+                <div class="bg">
+                    <img src="<?php echo $header_image['url']; ?>" />
+                </div>
+            <?php } ?>
 
             <div class="info">
                 <div class="l">
@@ -80,6 +97,7 @@ endif;
     <section class="pub1">
         <div class="container">
             <img class="bg" src="<?php echo $pub1_background_image['url']; ?>" alt="" />
+            <img class="bg mobile" src="<?php echo $pub1_background_image_mobile['url']; ?>" alt="" />
             <div class="text">
                 <div class="l"><?php echo $pub1_text_left; ?></div>
                 <div class="r"><?php echo $pub1_text_right; ?></div>
@@ -87,19 +105,21 @@ endif;
         </div>
     </section>
 
-    <section class="info">
+    <!--<section class="info">
         <div class="container">
             <div class="l"><?php echo $info_title; ?></div>
             <div class="r">
-                <?php echo $info_text; ?>
+                <div class="text">
+                    <?php echo $info_text; ?>
+                </div>
                 <a class="button invert" href="#"><?php echo $info_button; ?></a>
             </div>
         </div>
 
         <div class="line"></div>
-    </section>
+    </section>-->
 
-    <section class="prizes">
+    <!--<section class="prizes">
         <div class="container">
             <h2><?php echo $prizes_title; ?></h2>
             <div class="items">
@@ -113,11 +133,12 @@ endif;
             </div>
 
         </div>
-    </section>
+    </section>-->
 
-    <section class="how">
+    <!--<section class="how">
         <div class="bg">
             <img src="<?php echo $how_image['url']; ?>" alt="" />
+            <img class="mobile" src="<?php echo $how_image_mobile['url']; ?>" alt="" />
         </div>
 
         <div class="container">
@@ -136,24 +157,26 @@ endif;
                 <a class="button"><?php echo $how_button; ?></a>
             </div>
         </div>
-    </section>
+    </section>-->
 
-    <section class="pub2">
+    <!--<section class="pub2">
         <div class="container">
             <img src="<?php echo $pub2_image['url']; ?>" alt="" />
             <div class="content">
                 <h2><?php echo $pub2_title; ?></h2>
                 <div class="text">
                     <?php echo $pub2_text; ?>
-                    <?php if($pub2_link) { ?>
-                        <a class="button invert white" href="<?php echo $pub2_link['url']; ?>">
-                            <?php echo $pub2_link['title']; ?>
-                        </a>    
+                    <?php if ($pub2_link) { ?>
+                        <div class="buttoncontainer">
+                            <a class="button invert white" href="<?php echo $pub2_link['url']; ?>">
+                                <?php echo $pub2_link['title']; ?>
+                            </a>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 </section>
 
 <?php get_footer(); ?>

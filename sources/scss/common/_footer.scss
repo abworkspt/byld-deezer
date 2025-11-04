@@ -8,21 +8,46 @@
         justify-content: space-between;
         align-items: center;
 
+        @media only screen and (max-width: 850px) {
+            display: block;
+            text-align: center;
+        }
+
         .l {
             font-size: 16px;
             font-family: 'head bold';
             text-transform: uppercase;
+
+            &.mobile {
+                display: none;
+            }
+
+            @media only screen and (max-width: 850px) {
+                display: none;
+
+                &.mobile {
+                    display: block;
+                    margin-bottom:128px;
+                }
+            }
         }
 
         .c {
             display: flex;
             align-items: center;
             gap: 0 80px;
+            justify-content: center;
+
+            @media only screen and (max-width: 850px) {
+                margin-bottom: 65px;
+                gap: 0 40px;
+            }
         }
 
         .r {
             display: flex;
             align-items: center;
+            justify-content: center;
 
             a {
                 color: $blue;

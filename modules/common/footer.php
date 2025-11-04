@@ -14,6 +14,7 @@ $footer_links = get_field('footer_links', 'option');
                 <?php if($logo['link']) { ?></a><?php } ?>
             <?php } ?>
         </div>
+        <div class="l mobile"><?php echo $footer_text_left; ?></div>
         <div class="r">
             <?php foreach($footer_links as $link) { ?>
                 <a href="<?php echo $link['link']['url']; ?>"><?php echo $link['link']['title']; ?></a>
