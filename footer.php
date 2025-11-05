@@ -1,4 +1,4 @@
-    <?php //include_once('modules/common/footer.php'); ?>
+    <?php include_once('modules/common/footer.php'); ?>
 </div>
 <?php wp_footer(); ?>
 </body>

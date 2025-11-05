@@ -2,6 +2,7 @@
     background-color: $white;
     color: $blue;
     padding-bottom: 80px;
+    margin-top: -20px;
 
     .container {
         display: flex;
@@ -27,7 +28,7 @@
 
                 &.mobile {
                     display: block;
-                    margin-bottom:128px;
+                    margin-bottom: 128px;
                 }
             }
         }

@@ -1,39 +1,5 @@
 var ABW = ABW || {};
 
-ABW.MAIN = (function () {
-
-    return {
-        init: function () {
-            $('[data-control]').each(function (index, elem) {
-                var data = $(elem).data(),
-                    control = data.control;
-
-                if (!ABW[control]) return;
-
-                if (typeof ABW[control] === 'function') {
-                    var obj = new ABW[control]; obj.init(elem, data);
-                } else if (typeof ABW[control] === 'object') {
-                    ABW[control].init(elem, data);
-                }
-            });
-        }
-    }
-})();
-
-if (history.scrollRestoration) {
-    history.scrollRestoration = 'manual';
-} else {
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-    ABW.MAIN.init();
-});
-var ABW = ABW || {};
-
 ABW.INSCPHASE1 = {
     init: function (el) {
         this.$root = $(el);
@@ -308,46 +274,5 @@ ABW.INSCPHASE1 = {
             $err.text(result.msg);
         }
         return result.valid;
-    }
-};
-var ABW = ABW || {};
-
-ABW.PHASE1 = {
-    init: function (el) {
-        this.el = $(el);
-        this.initCountdown();
-    },
-
-    initCountdown() {
-        const countdownEl = this.el.find('.countdown');
-        const eventDate = countdownEl.data('date');
-
-        const formattedDate = eventDate.replace(
-            /(\d{2})\/(\d{2})\/(\d{4}) (.*)/,
-            '$3-$2-$1T$4'
-        );
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const target = new Date(formattedDate).getTime();
-            const diff = target - now;
-
-
-            if (diff <= 0) {
-                countdownEl.text("00j 00h 00m");
-                return;
-            }
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-            countdownEl.text(
-                `${days}j ${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m`
-            );
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 60000); // Atualiza a cada minuto
     }
 };

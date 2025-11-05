@@ -7,6 +7,6 @@
 	<?php wp_head(); ?>
 </head>
 
-<body data-control="GLOBAL">
+<body data-control="GLOBAL" class="">
 	<?php include_once('modules/common/header.php'); ?>
 		<div id="smooth-content">

@@ -45,6 +45,11 @@ if (have_posts()) :
         $pub2_text = get_field('pub2_text', $pageid);
         $pub2_link = get_field('pub2_link', $pageid);
 
+        //SUCCESS
+        $success_image = get_field('success_image', $pageid);
+        $success_title = get_field('success_title', $pageid);
+        $success_text = get_field('success_text', $pageid);
+
     endwhile;
 endif;
 ?>
@@ -88,7 +93,7 @@ endif;
                 <div class="r">
                     <p><?php echo $header_text_right; ?></p>
                     <div class="countdown" data-date="<?php echo $hader_event_date; ?>"></div>
-                    <a class="button" href="#"><?php echo $header_button_label; ?></a>
+                    <a class="button js-insc-open" href="#"><?php echo $header_button_label; ?></a>
                 </div>
             </div>
         </div>
@@ -105,21 +110,21 @@ endif;
         </div>
     </section>
 
-    <!--<section class="info">
+    <section class="info">
         <div class="container">
             <div class="l"><?php echo $info_title; ?></div>
             <div class="r">
                 <div class="text">
                     <?php echo $info_text; ?>
                 </div>
-                <a class="button invert" href="#"><?php echo $info_button; ?></a>
+                <a class="button invert js-insc-open" href="#"><?php echo $info_button; ?></a>
             </div>
         </div>
 
         <div class="line"></div>
-    </section>-->
+    </section>
 
-    <!--<section class="prizes">
+    <section class="prizes">
         <div class="container">
             <h2><?php echo $prizes_title; ?></h2>
             <div class="items">
@@ -133,9 +138,9 @@ endif;
             </div>
 
         </div>
-    </section>-->
+    </section>
 
-    <!--<section class="how">
+    <section class="how">
         <div class="bg">
             <img src="<?php echo $how_image['url']; ?>" alt="" />
             <img class="mobile" src="<?php echo $how_image_mobile['url']; ?>" alt="" />
@@ -154,12 +159,12 @@ endif;
                         </div>
                     <?php } ?>
                 </div>
-                <a class="button"><?php echo $how_button; ?></a>
+                <a class="button js-insc-open"><?php echo $how_button; ?></a>
             </div>
         </div>
-    </section>-->
+    </section>
 
-    <!--<section class="pub2">
+    <section class="pub2">
         <div class="container">
             <img src="<?php echo $pub2_image['url']; ?>" alt="" />
             <div class="content">
@@ -176,7 +181,9 @@ endif;
                 </div>
             </div>
         </div>
-    </section>-->
+    </section>-
 </section>
+
+<?php include(TEMPLATEPATH . '/modules/phase1/popup-signin.php'); ?>
 
 <?php get_footer(); ?>
