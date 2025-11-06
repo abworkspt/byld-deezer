@@ -34,6 +34,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 var ABW = ABW || {};
 
+ABW.GLOBAL = {
+    init: function (el, data) {
+        this.el = $(el);
+        this.initSmoothScroller();
+    },
+
+    initSmoothScroller() {
+        ABW.smoother = ScrollSmoother.create({
+            smooth: 1,
+            effects: true,
+            smoothTouch: true,
+        });
+
+        if (window.innerWidth <= 768) {
+            ABW.smoother.kill();
+        }
+
+        window.addEventListener("load", () => ScrollTrigger.refresh());
+    }
+}
+var ABW = ABW || {};
+
 ABW.INSCPHASE1 = {
     init: function (el) {
         this.$root = $(el);
@@ -129,7 +151,6 @@ ABW.INSCPHASE1 = {
                         const msg = (json && json.data && json.data.message) ? json.data.message : "Erreur lors de l'envoi.";
                         alert(msg);
                     }
-                    console.log('SUCCEEE');
                     self.allowSend = true;
                     console.log(self.allowSend);
                 })
@@ -150,19 +171,54 @@ ABW.INSCPHASE1 = {
         onBlurValidate('[name="consent"]', () => this.validateConsent());
     },
 
-    openModal(e) {
-        e.preventDefault();
-        $('body').addClass('modal-open');
-        $('.insc-overlay').addClass('open');
+    openModal: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+
+        // smoother (se existir)
+        var smoother = (window.ABW && ABW.smoother) ? ABW.smoother : null;
+
+        // guarda posição atual
+        this.scrollY = smoother ? smoother.scrollTop() :
+            (window.pageYOffset || document.documentElement.scrollTop || 0);
+
+        // pausa scroll do site
+        if (smoother) { smoother.paused(true); }
+        var wrap = document.getElementById('smooth-content');
+        if (wrap) { wrap.classList.add('lock-scroll'); }
+
+        // esconde a barra global (no <html>)
+        document.documentElement.classList.add('modal-open');
+
+        // abre overlay
+        var ov = document.querySelector('.insc-overlay');
+        if (ov) {
+            ov.classList.add('open');
+            ov.scrollTop = 0;
+        }
     },
 
-    closeModal() {
-        console.log('close', this.allowSend);
+    closeModal: function () {
         if (!this.allowSend) return;
 
-        $('body').removeClass('modal-open');
-        $('.insc-overlay').removeClass('open');
+        // fecha overlay
+        var ov = document.querySelector('.insc-overlay');
+        if (ov) { ov.classList.remove('open'); }
+
+        // volta a mostrar a barra global
+        document.documentElement.classList.remove('modal-open');
+
+        // retoma scroll do site
+        var smoother = (window.ABW && ABW.smoother) ? ABW.smoother : null;
+        if (smoother) {
+            var wrap = document.getElementById('smooth-content');
+            if (wrap) { wrap.classList.remove('lock-scroll'); }
+            smoother.paused(false);
+            smoother.scrollTo(this.scrollY || 0, false);
+        } else {
+            window.scrollTo(0, this.scrollY || 0);
+        }
     },
+
 
     addFiles(fileList) {
         const incoming = Array.from(fileList);
@@ -316,6 +372,24 @@ ABW.PHASE1 = {
     init: function (el) {
         this.el = $(el);
         this.initCountdown();
+        this.initEvents();
+    },
+
+    initEvents() {
+        this.el.find('.header .menu a').on('click', this.gotoArea.bind(this));
+    },
+
+    gotoArea(e) {
+        e.preventDefault();
+        const target = $(e.currentTarget);
+        const href = target.attr('href');
+        const dest = $(href);
+        const targetY = dest[0].getBoundingClientRect().top + window.scrollY - 50;
+
+        if (dest) {
+            e.preventDefault();
+            ABW.smoother.scrollTo(targetY, true);
+        }
     },
 
     initCountdown() {

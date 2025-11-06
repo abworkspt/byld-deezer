@@ -95,7 +95,6 @@ ABW.INSCPHASE1 = {
                         const msg = (json && json.data && json.data.message) ? json.data.message : "Erreur lors de l'envoi.";
                         alert(msg);
                     }
-                    console.log('SUCCEEE');
                     self.allowSend = true;
                     console.log(self.allowSend);
                 })
@@ -116,19 +115,54 @@ ABW.INSCPHASE1 = {
         onBlurValidate('[name="consent"]', () => this.validateConsent());
     },
 
-    openModal(e) {
-        e.preventDefault();
-        $('body').addClass('modal-open');
-        $('.insc-overlay').addClass('open');
+    openModal: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+
+        // smoother (se existir)
+        var smoother = (window.ABW && ABW.smoother) ? ABW.smoother : null;
+
+        // guarda posição atual
+        this.scrollY = smoother ? smoother.scrollTop() :
+            (window.pageYOffset || document.documentElement.scrollTop || 0);
+
+        // pausa scroll do site
+        if (smoother) { smoother.paused(true); }
+        var wrap = document.getElementById('smooth-content');
+        if (wrap) { wrap.classList.add('lock-scroll'); }
+
+        // esconde a barra global (no <html>)
+        document.documentElement.classList.add('modal-open');
+
+        // abre overlay
+        var ov = document.querySelector('.insc-overlay');
+        if (ov) {
+            ov.classList.add('open');
+            ov.scrollTop = 0;
+        }
     },
 
-    closeModal() {
-        console.log('close', this.allowSend);
+    closeModal: function () {
         if (!this.allowSend) return;
 
-        $('body').removeClass('modal-open');
-        $('.insc-overlay').removeClass('open');
+        // fecha overlay
+        var ov = document.querySelector('.insc-overlay');
+        if (ov) { ov.classList.remove('open'); }
+
+        // volta a mostrar a barra global
+        document.documentElement.classList.remove('modal-open');
+
+        // retoma scroll do site
+        var smoother = (window.ABW && ABW.smoother) ? ABW.smoother : null;
+        if (smoother) {
+            var wrap = document.getElementById('smooth-content');
+            if (wrap) { wrap.classList.remove('lock-scroll'); }
+            smoother.paused(false);
+            smoother.scrollTo(this.scrollY || 0, false);
+        } else {
+            window.scrollTo(0, this.scrollY || 0);
+        }
     },
+
 
     addFiles(fileList) {
         const incoming = Array.from(fileList);

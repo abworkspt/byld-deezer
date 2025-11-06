@@ -1,3 +1,12 @@
+<?php
+global $post;
+$pageid = $post->ID;
+
+$success_image = get_field('success_image', $pageid);
+$success_title = get_field('success_title', $pageid);
+$success_text = get_field('success_text', $pageid);
+?>
+
 <div class="insc-overlay" data-control="INSCPHASE1">
     <div class="bg js-insc-close"></div>
 

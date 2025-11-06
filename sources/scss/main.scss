@@ -19,13 +19,17 @@ body {
     background-color: $yellow;
     color: $blue;
 
+    #smooth-content.lock-scroll { overflow: hidden !important; height: 100vh; }
+
     &.locked {
         pointer-events: none !important;
         cursor: wait !important;
     }
 
     &.modal-open {
-        overflow: hidden;
+        position: fixed;
+        overflow: hidden !important;
+        width: 100%;
     }
 
     .container {

@@ -4,6 +4,24 @@ ABW.PHASE1 = {
     init: function (el) {
         this.el = $(el);
         this.initCountdown();
+        this.initEvents();
+    },
+
+    initEvents() {
+        this.el.find('.header .menu a').on('click', this.gotoArea.bind(this));
+    },
+
+    gotoArea(e) {
+        e.preventDefault();
+        const target = $(e.currentTarget);
+        const href = target.attr('href');
+        const dest = $(href);
+        const targetY = dest[0].getBoundingClientRect().top + window.scrollY - 50;
+
+        if (dest) {
+            e.preventDefault();
+            ABW.smoother.scrollTo(targetY, true);
+        }
     },
 
     initCountdown() {

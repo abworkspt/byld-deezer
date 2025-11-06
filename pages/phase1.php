@@ -45,11 +45,6 @@ if (have_posts()) :
         $pub2_text = get_field('pub2_text', $pageid);
         $pub2_link = get_field('pub2_link', $pageid);
 
-        //SUCCESS
-        $success_image = get_field('success_image', $pageid);
-        $success_title = get_field('success_title', $pageid);
-        $success_text = get_field('success_text', $pageid);
-
     endwhile;
 endif;
 ?>
@@ -57,15 +52,19 @@ endif;
 <section id="phase1" data-control="PHASE1">
 
     <section class="header">
+        <video preload="metadata" muted playsinline loop autoplay>
+            <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
+        </video>
+
         <div class="container">
             <div class="menu">
-
+                <img class="logo mobile" src="<?php echo $header_vw_logo['url']; ?>" />
                 <?php if ($header_links) { ?>
                     <ul>
                         <?php foreach ($header_links as $item) { ?>
 
                             <?php if ($item['link']['title'] == 'home') { ?>
-                                <li><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
+                                <li class="logoli"><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
                             <?php } else { ?>
                                 <li><a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
                             <?php } ?>
@@ -74,19 +73,22 @@ endif;
                 <?php } ?>
             </div>
 
-            <?php if ($header_video) { ?>
+            <div class="bg">
+                <img class="image" src="<?php echo $header_image['url']; ?>" />
+                <img class="spacer" src="<?php echo get_bloginfo('template_url'); ?>/images/hero_spacer.png" />
+            </div>
+
+            <!-- <?php if ($header_video) { ?>
                 <div class="bg">
                     <video preload="metadata" muted playsinline loop autoplay>
                         <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
                     </video>
                 </div>
             <?php } else { ?>
-                <div class="bg">
-                    <img src="<?php echo $header_image['url']; ?>" />
-                </div>
-            <?php } ?>
+                
+            <?php } ?>-->
 
-            <div class="info">
+            <div class="infoh">
                 <div class="l">
                     <p><?php echo $header_text_left; ?></p>
                 </div>
@@ -99,7 +101,7 @@ endif;
         </div>
     </section>
 
-    <section class="pub1">
+    <section id="nouveau-t-roc" class="pub1">
         <div class="container">
             <img class="bg" src="<?php echo $pub1_background_image['url']; ?>" alt="" />
             <img class="bg mobile" src="<?php echo $pub1_background_image_mobile['url']; ?>" alt="" />
@@ -110,7 +112,7 @@ endif;
         </div>
     </section>
 
-    <section class="info">
+    <section class="info" >
         <div class="container">
             <div class="l"><?php echo $info_title; ?></div>
             <div class="r">
@@ -140,7 +142,7 @@ endif;
         </div>
     </section>
 
-    <section class="how">
+    <section id="how" class="how">
         <div class="bg">
             <img src="<?php echo $how_image['url']; ?>" alt="" />
             <img class="mobile" src="<?php echo $how_image_mobile['url']; ?>" alt="" />
@@ -153,7 +155,7 @@ endif;
             <div class="bot">
                 <div class="infos">
                     <?php foreach ($how_info as $info) { ?>
-                        <div class="info">
+                        <div class="infohow">
                             <h3><?php echo $info['title']; ?></h3>
                             <p><?php echo $info['text']; ?></p>
                         </div>
@@ -183,7 +185,5 @@ endif;
         </div>
     </section>-
 </section>
-
-<?php include(TEMPLATEPATH . '/modules/phase1/popup-signin.php'); ?>
 
 <?php get_footer(); ?>
