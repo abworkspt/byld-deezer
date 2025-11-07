@@ -78,7 +78,7 @@ $success_text = get_field('success_text', $pageid);
 
                     <label class="consent">
                         <input type="checkbox" name="consent" required>
-                        <p>J’accepte le <a href="#">règlement</a> et <a href="#">conditions</a> du jeu concours.</p>
+                        <p>J’accepte le <a href="<?php echo home_url(); ?>/reglement">règlement</a> du jeu concours.</p>
                     </label>
                 </div>
             </form>

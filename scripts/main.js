@@ -154,9 +154,9 @@ ABW.INSCPHASE1 = {
                     }
                     self.allowSend = true;
                 })
-                .catch(() => { 
-                    self.allowSend = true; 
-                    alert("Erreur lors de l'envoi."); 
+                .catch(() => {
+                    self.allowSend = true;
+                    alert("Erreur lors de l'envoi.");
                 });
         });
 
@@ -197,6 +197,10 @@ ABW.INSCPHASE1 = {
         if (ov) {
             ov.classList.add('open');
             ov.scrollTop = 0;
+        }
+
+        if (typeof _paq !== 'undefined') {
+            _paq.push(['trackEvent', 'Modal', 'Ouverture', 'Inscription']);
         }
     },
 
