@@ -37,6 +37,8 @@
         }
 
         .chart {
+            max-width: 94px;
+            
             &.mobile {
                 display: none;
             }

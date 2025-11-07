@@ -212,11 +212,11 @@ html.wp-toolbar {
 #login::after {
 	content: '';
     position: absolute;
-    width: 134px;
-    height: 34px;
+    width: 280px;
+    height: 270px;
     left: 25px;
-    top: 10px;
-    background-image: url(../images/adminlogo.png);
+    top: -240px;
+    background-image: url(../images/admin_logo.svg);
     background-size: 100%;
     background-repeat: no-repeat;
     pointer-events: none;
@@ -540,4 +540,8 @@ html.wp-toolbar {
 	position: relative;
 	background-color: #191a1a;
 	color: #fff;
+}
+
+#toplevel_page_wpengine-common {
+	display: none;
 }

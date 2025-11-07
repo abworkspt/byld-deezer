@@ -18,7 +18,6 @@ $success_text = get_field('success_text', $pageid);
                 <path d="M28 2.81879L16.8188 14L28 25.1812L25.1812 28L14 16.8188L2.81879 28L0 25.1812L11.1812 14L0 2.81879L2.81879 0L14 11.1812L25.1812 0L28 2.81879Z" fill="#11192E" style="fill:#11192E;fill:color(display-p3 0.0667 0.0980 0.1804);fill-opacity:1;" />
             </svg>
 
-
             <div class="insc-head">
                 <div class="title" id="insc-title">PRÊT.E À T'INSCRIRE ?</div>
                 <p class="blurb">Remplis les champs indiqués et envoie-nous ton formulaire d’inscription.</p>
@@ -47,6 +46,14 @@ $success_text = get_field('success_text', $pageid);
                     <label>Ton son disponible sur Deezer *<input type="url" name="deezer" placeholder="Lien Deezer"></label>
                 </div>
 
+                <!-- ✅ Nouveau champ ajouté -->
+                <div class="insc-desc">
+                    <h2>DESCRIPTION DE TON GROUPE</h2>
+                    <p>500 CARACTÈRES MAXIMUM</p>
+                    <textarea name="description_groupe" maxlength="500" placeholder="Décris brièvement ton groupe (maximum 500 caractères)"></textarea>
+                </div>
+                <!-- ✅ Fin du champ ajouté -->
+
                 <div class="insc-upload-head">
                     <h2>Télécharge tes photos</h2>
                     <p>5 photos maximum</p>
@@ -55,7 +62,6 @@ $success_text = get_field('success_text', $pageid);
                 <!-- Upload -->
                 <div class="insc-upload">
                     <div class="zone" aria-hidden="true">
-
                         <svg class="ico" width="42" height="33" viewBox="0 0 42 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0.708008 17.2844V32.1517H40.708V17.2844" stroke="black" style="stroke:black;stroke-opacity:1;" stroke-width="1.41593" />
                             <path d="M21.239 21.1782V1.00122" stroke="black" style="stroke:black;stroke-opacity:1;" stroke-width="1.41593" />
@@ -66,7 +72,6 @@ $success_text = get_field('success_text', $pageid);
                         <span class="hint">Extensions : jpg, png. Poids maximal du fichier : 10Mo</span>
                     </div>
                     <input class="upload-file" type="file" name="fotos[]" accept=".jpg,.jpeg,.png" multiple aria-label="Télécharge tes photos (max 5)">
-                    <!-- Se quiseres listar ficheiros adiciona .file itens aqui -->
                 </div>
 
                 <!-- Footer: consentimento + botão -->

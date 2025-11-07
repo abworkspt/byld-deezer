@@ -82,6 +82,7 @@ ABW.INSCPHASE1 = {
         this.$estilo = this.$form.find('[name="estilo"]');
         this.$insta = this.$form.find('[name="instagram"]');
         this.$deezer = this.$form.find('[name="deezer"]');
+        this.$desc = this.$form.find('[name="description_groupe"]');
         this.$consent = this.$form.find('[name="consent"]');
 
         this.maxFiles = 5;
@@ -171,6 +172,7 @@ ABW.INSCPHASE1 = {
         onBlurValidate('[name="estilo"]', () => this.validateEstilo());
         onBlurValidate('[name="instagram"]', () => this.validateInsta());
         onBlurValidate('[name="deezer"]', () => this.validateDeezer());
+        onBlurValidate('[name="description_groupe"]', () => this.validateDesc());
         onBlurValidate('[name="consent"]', () => this.validateConsent());
     },
 
@@ -303,6 +305,7 @@ ABW.INSCPHASE1 = {
             this.validateEstilo(),
             this.validateInsta(),
             this.validateDeezer(),
+            this.validateDesc(),
             this.validateConsent(),
             this.validatePhotos()
         ];
@@ -326,6 +329,7 @@ ABW.INSCPHASE1 = {
     validateEstilo() { return this._required(this.$estilo, 'Indique ton style musical.'); },
     validateInsta() { const v = (this.$insta.val() || '').trim(), ok = /^@?[\w\.]{1,30}$/.test(v); return { $el: this.$insta, valid: ok, msg: ok ? '' : 'Handle Instagram invalide.' }; },
     validateDeezer() { const v = (this.$deezer.val() || '').trim(); try { new URL(v); return { $el: this.$deezer, valid: true, msg: '' } } catch (e) { return { $el: this.$deezer, valid: false, msg: 'Lien Deezer invalide.' } } },
+    validateDesc() { return this._required(this.$desc, 'Décris ton groupe.'); },
     validateConsent() { const ok = this.$consent.is(':checked'); return { $el: this.$consent, valid: ok, msg: ok ? '' : 'Tu dois accepter le règlement.' }; },
 
     validatePhotos() {
@@ -357,9 +361,16 @@ ABW.INSCPHASE1 = {
 
     setFieldValidity(result) {
         const $el = result.$el;
-        const $wrap = $el.closest('label, .consent, .zone');
+        // inclui .insc-desc para o textarea e fallback para parent()
+        let $wrap = $el.closest('label, .consent, .zone, .insc-desc');
+        if (!$wrap.length) {
+            $wrap = $el.parent();
+        }
+
         let $err = $wrap.find('.field-error');
-        if (!$err.length) $err = $('<span class="field-error" aria-live="polite"></span>').appendTo($wrap);
+        if (!$err.length) {
+            $err = $('<span class="field-error" aria-live="polite"></span>').appendTo($wrap);
+        }
 
         if (result.valid) {
             $el.attr('aria-invalid', 'false');
@@ -370,8 +381,10 @@ ABW.INSCPHASE1 = {
             $wrap.addClass('has-error');
             $err.text(result.msg);
         }
+
         return result.valid;
     }
+
 };
 var ABW = ABW || {};
 

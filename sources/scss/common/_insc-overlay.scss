@@ -183,6 +183,53 @@
       }
     }
 
+    .insc-desc {
+      font-family: 'head bold';
+      text-transform: uppercase;
+      position: relative;
+
+      .field-error {
+        bottom: -20px;
+        color: red;
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+        text-transform: math-auto;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      textarea {
+        font-family: 'text regular';
+        font-size: 24px;
+        width: calc(100% - 50px);
+        border: 1px solid $blue;
+        margin-top: 20px;
+        border-radius: 10px;
+        resize: vertical;
+        height: calc(145px - 50px);
+        background: none;
+        padding: 25px;
+        outline: none;
+
+        @media only screen and (max-width: 768px) {
+          height: 240px;
+        }
+
+        &::placeholder {
+          color: $blue;
+          opacity: .2;
+        }
+      }
+    }
+
     .insc-upload-head {
       margin: 20px 0;
       font-family: 'head bold';
@@ -196,6 +243,13 @@
       p {
         font-size: 18px;
       }
+
+      .field-error {
+        color: red;
+        margin-top: 10px;
+        display: block;
+      }
+
     }
 
     .insc-upload {
