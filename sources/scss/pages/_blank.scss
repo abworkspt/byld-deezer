@@ -44,8 +44,9 @@
                 justify-content: center;
 
                 @media only screen and (max-width: 580px) {
-                    gap: 10px;
+                    gap: 20px;
                     margin-left: 0;
+                    justify-content: flex-end;
                 }
 
                 li {

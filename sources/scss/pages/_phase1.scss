@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            
+
             @media only screen and (max-width: 580px) {
                 width: 90%;
                 top: 35px;
@@ -360,8 +360,8 @@
             height: 20px;
             background-image: radial-gradient(circle, black 0 4px, transparent 5px);
             background-size: 40px 20px;
-            /* espaçamento entre bolinhas */
             background-repeat: repeat-x;
+            animation: moveDots 3s linear infinite;
 
             @media only screen and (max-width: 850px) {
                 background-image: radial-gradient(circle, black 0 3px, transparent 4px);
@@ -369,6 +369,17 @@
                 margin: 65px auto;
             }
         }
+
+        @keyframes moveDots {
+            from {
+                background-position-x: 0;
+            }
+
+            to {
+                background-position-x: 40px;
+            }
+        }
+
     }
 
     .prizes {

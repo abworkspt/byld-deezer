@@ -53,7 +53,7 @@ endif;
 <section id="phase1" data-control="PHASE1">
 
     <section class="header">
-  
+
         <div class="container">
             <div class="menu">
                 <img class="logo mobile" src="<?php echo $header_vw_logo['url']; ?>" />
@@ -64,7 +64,7 @@ endif;
                             <?php if ($item['link']['title'] == 'home') { ?>
                                 <li class="logoli"><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
                             <?php } else { ?>
-                                <li><a target="<?php echo $item['link']['target']; ?>" class="<?php if($item['link']['url'] == '#open-insc') { ?>js-insc-open<?php } ?>" href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
+                                <li><a target="<?php echo $item['link']['target']; ?>" class="<?php if ($item['link']['url'] == '#open-insc') { ?>js-insc-open<?php } ?>" href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
                             <?php } ?>
                         <?php } ?>
                     </ul>
@@ -74,7 +74,7 @@ endif;
             <!--<div class="bg">
                 <img class="image" src="<?php echo $header_image['url']; ?>" />
                 <img class="spacer" src="<?php echo get_bloginfo('template_url'); ?>/images/hero_spacer.png" />
-            </div>-->            
+            </div>-->
 
             <div class="bg">
                 <video class="desktop" preload="metadata" muted playsinline loop autoplay>
@@ -98,89 +98,94 @@ endif;
         </div>
     </section>
 
-    <section id="nouveau-t-roc" class="pub1">
-        <div class="container">
-            <img class="bg" src="<?php echo $pub1_background_image['url']; ?>" alt="" />
-            <img class="bg mobile" src="<?php echo $pub1_background_image_mobile['url']; ?>" alt="" />
-            <div class="text">
-                <div class="l"><?php echo $pub1_text_left; ?></div>
-                <div class="r"><?php echo $pub1_text_right; ?></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="info">
-        <div class="container">
-            <div class="l"><?php echo $info_title; ?></div>
-            <div class="r">
+    <div data-speed="0.9">
+        <section id="nouveau-t-roc" class="pub1">
+            <div class="container">
+                <img class="bg" src="<?php echo $pub1_background_image['url']; ?>" alt="" />
+                <img class="bg mobile" src="<?php echo $pub1_background_image_mobile['url']; ?>" alt="" />
                 <div class="text">
-                    <?php echo $info_text; ?>
+                    <div class="l"><?php echo $pub1_text_left; ?></div>
+                    <div class="r"><?php echo $pub1_text_right; ?></div>
                 </div>
-                <a class="button invert js-insc-open" href="#"><?php echo $info_button; ?></a>
             </div>
-        </div>
+        </section>
 
-        <div class="line"></div>
-    </section>
-
-    <section class="prizes">
-        <div class="container">
-            <h2><?php echo $prizes_title; ?></h2>
-            <div class="items">
-                <?php foreach ($prizes_items as $item) { ?>
-                    <div class="item">
-                        <img src="<?php echo $item['image']['url']; ?>" alt="" />
-                        <p><?php echo $item['text']; ?></p>
-                        <h3><?php echo $item['title']; ?></h3>
+        <section class="info">
+            <div class="container">
+                <div class="l"><?php echo $info_title; ?></div>
+                <div class="r">
+                    <div class="text">
+                        <?php echo $info_text; ?>
                     </div>
-                <?php } ?>
+                    <a class="button invert js-insc-open" href="#"><?php echo $info_button; ?></a>
+                </div>
             </div>
 
-        </div>
-    </section>
+            <div class="line"></div>
+        </section>
 
-    <section id="how" class="how">
-        <div class="bg">
-            <img src="<?php echo $how_image['url']; ?>" alt="" />
-            <img class="mobile" src="<?php echo $how_image_mobile['url']; ?>" alt="" />
-        </div>
-
-        <div class="container">
-            <div class="top">
-                <h2><?php echo $how_title; ?></h2>
-            </div>
-            <div class="bot">
-                <div class="infos">
-                    <?php foreach ($how_info as $info) { ?>
-                        <div class="infohow">
-                            <h3><?php echo $info['title']; ?></h3>
-                            <p><?php echo $info['text']; ?></p>
+        <section class="prizes">
+            <div class="container">
+                <h2><?php echo $prizes_title; ?></h2>
+                <div class="items">
+                    <?php foreach ($prizes_items as $item) { ?>
+                        <div class="item">
+                            <img src="<?php echo $item['image']['url']; ?>" alt="" />
+                            <p><?php echo $item['text']; ?></p>
+                            <h3><?php echo $item['title']; ?></h3>
                         </div>
                     <?php } ?>
                 </div>
-                <a class="button js-insc-open"><?php echo $how_button; ?></a>
-            </div>
-        </div>
-    </section>
 
-    <section class="pub2">
-        <div class="container">
-            <img src="<?php echo $pub2_image['url']; ?>" alt="" />
-            <div class="content">
-                <h2><?php echo $pub2_title; ?></h2>
-                <div class="text">
-                    <?php echo $pub2_text; ?>
-                    <?php if ($pub2_link) { ?>
-                        <div class="buttoncontainer">
-                            <a class="button invert white" href="<?php echo $pub2_link['url']; ?>" target="<?php echo $pub2_link['target']; ?>">
-                                <?php echo $pub2_link['title']; ?>
-                            </a>
-                        </div>
-                    <?php } ?>
+            </div>
+        </section>
+    </div>
+
+    <div data-speed="1.2">
+        <section id="how" class="how">
+            <div class="bg">
+                <img src="<?php echo $how_image['url']; ?>" alt="" />
+                <img class="mobile" src="<?php echo $how_image_mobile['url']; ?>" alt="" />
+            </div>
+
+            <div class="container">
+                <div class="top">
+                    <h2><?php echo $how_title; ?></h2>
+                </div>
+                <div class="bot">
+                    <div class="infos">
+                        <?php foreach ($how_info as $info) { ?>
+                            <div class="infohow">
+                                <h3><?php echo $info['title']; ?></h3>
+                                <p><?php echo $info['text']; ?></p>
+                            </div>
+                        <?php } ?>
+                    </div>
+                    <a class="button js-insc-open"><?php echo $how_button; ?></a>
                 </div>
             </div>
-        </div>
-    </section>-
+        </section>
+
+        <section class="pub2">
+            <div class="container">
+                <img src="<?php echo $pub2_image['url']; ?>" alt="" />
+                <div class="content">
+                    <h2><?php echo $pub2_title; ?></h2>
+                    <div class="text">
+                        <?php echo $pub2_text; ?>
+                        <?php if ($pub2_link) { ?>
+                            <div class="buttoncontainer">
+                                <a class="button invert white" href="<?php echo $pub2_link['url']; ?>" target="<?php echo $pub2_link['target']; ?>">
+                                    <?php echo $pub2_link['title']; ?>
+                                </a>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </section>-
+    </div>
+
 </section>
 
 <?php get_footer(); ?>
