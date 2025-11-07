@@ -93,12 +93,15 @@ ABW.INSCPHASE1 = {
                         self.$root.addClass("success");
                     } else {
                         const msg = (json && json.data && json.data.message) ? json.data.message : "Erreur lors de l'envoi.";
+                        self.$submitcontainer.removeClass('sending');
                         alert(msg);
                     }
                     self.allowSend = true;
-                    console.log(self.allowSend);
                 })
-                .catch(() => { self.allowSend = true; alert("Erreur lors de l'envoi."); });
+                .catch(() => { 
+                    self.allowSend = true; 
+                    alert("Erreur lors de l'envoi."); 
+                });
         });
 
         const onBlurValidate = (sel, fn) => this.$form.on('blur change', sel, () => this.setFieldValidity(fn()));
@@ -257,7 +260,7 @@ ABW.INSCPHASE1 = {
     validateApelido() { return this._required(this.$apelido, 'Indique ton prénom.'); },
     validateEmail() { const v = (this.$email.val() || '').trim(), ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); return { $el: this.$email, valid: ok, msg: ok ? '' : 'Email invalide.' }; },
     validateTel() { const v = (this.$tel.val() || '').trim(), ok = /^0[1-9](?:[ .-]?\d{2}){4}$/.test(v); return { $el: this.$tel, valid: ok, msg: ok ? '' : 'Numéro de téléphone invalide.' }; },
-    validateNasc() { const v = (this.$nasc.val() || '').trim(); let ok = !!v, msg = 'Sélectionne ta date de naissance.'; if (ok) { const d = new Date(v); const age = this.calcAge(d); ok = !isNaN(d.getTime()) && age >= 16 && age <= 120; msg = ok ? '' : 'Âge minimum 16 ans.'; } return { $el: this.$nasc, valid: ok, msg }; },
+    validateNasc() { const v = (this.$nasc.val() || '').trim(); let ok = !!v, msg = 'Sélectionne ta date de naissance.'; if (ok) { const d = new Date(v); const age = this.calcAge(d); ok = !isNaN(d.getTime()) && age >= 18 && age <= 120; msg = ok ? '' : 'Âge minimum 18 ans.'; } return { $el: this.$nasc, valid: ok, msg }; },
     validateCidade() { return this._required(this.$cidade, 'Indique ta ville.'); },
     validateGrupo() { return this._required(this.$grupo, 'Indique le nom de ton groupe.'); },
     validateEstilo() { return this._required(this.$estilo, 'Indique ton style musical.'); },

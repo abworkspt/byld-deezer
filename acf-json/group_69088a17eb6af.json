@@ -94,6 +94,27 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_690cb3b29b7e3",
+            "label": "Background Video (Mobile)",
+            "name": "header_video_mobile",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_69088dfe47850",
             "label": "Links",
             "name": "header_links",
@@ -960,5 +981,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762425268
+    "modified": 1762440130
 }

@@ -5,7 +5,7 @@
         position: relative;
         overflow: hidden;
 
-        video {
+        /*video {
             position: absolute;
             left: 50%;
             top: 50%;
@@ -14,7 +14,7 @@
             width: 100%;
             z-index: 0;
             object-fit: cover;
-        }
+        }*/
 
         .container {
             width: 100%;
@@ -30,7 +30,8 @@
             text-align: center;
             display: flex;
             align-items: center;
-
+            justify-content: space-between;
+            
             @media only screen and (max-width: 580px) {
                 width: 90%;
                 top: 35px;
@@ -138,6 +139,24 @@
             width: 100%;
             position: relative;
 
+            video {
+                width: 100%;
+
+                &.mobile {
+                    display: none;
+                }
+
+                @media only screen and (max-width: 768px) {
+                    display: none;
+
+                    &.mobile {
+                        display: block;
+                        padding-bottom: 120px;
+                        background-color: #000004;
+                    }
+                }
+            }
+
             .image {
                 position: absolute;
                 left: 50%;
@@ -198,7 +217,7 @@
                 position: absolute;
                 top: -5px;
                 left: 0;
-                background: #00040a;
+                background: #000004;
             }
         }
 
@@ -219,6 +238,11 @@
                     &.mobile {
                         display: block;
                     }
+                }
+
+                @media only screen and (max-width: 580px) {
+                    padding-top: 70px;
+                    background: #001d45;
                 }
             }
 
@@ -273,7 +297,7 @@
 
                     @media only screen and (max-width: 768px) {
                         max-width: none;
-                        font-size: clamp(14px, 3vw, 20px);
+                        font-size: clamp(14px, 4vw, 20px);
 
                         br {
                             display: none;
@@ -286,7 +310,7 @@
 
     .info {
         margin-top: 65px;
-   
+
         .container {
             display: flex;
             justify-content: space-between;
@@ -348,7 +372,7 @@
     }
 
     .prizes {
- 
+
         .container {
             color: $blue;
 
@@ -536,8 +560,6 @@
 
                 .button {
                     @media only screen and (max-width: 768px) {
-                        font-size: 17px;
-                        padding: 15px;
                         margin: 40px 0px 30px 0;
                     }
                 }

@@ -472,14 +472,24 @@
     @media only screen and (max-width: 768px) {
       width: 100%;
       height: 100vh;
-      background: #030306;
+      background: #010101;
     }
 
 
     img {
       width: 100%;
 
-      @media only screen and (max-width: 768px) {}
+      &.mobile {
+        display: none;
+      }
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+
+        &.mobile {
+          display: block;
+        }
+      }
     }
 
 
@@ -523,7 +533,7 @@
 
       @media only screen and (max-width: 768px) {
         left: 20px;
-        width: calc(100% - 40px);
+        width: calc(100% - 60px);
       }
 
       h2 {

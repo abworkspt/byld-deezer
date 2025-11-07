@@ -13,6 +13,10 @@ function abw_submit_participant()
 		wp_send_json_error(['message' => 'Nonce invalide.'], 400);
 	}
 
+	if (!empty($_POST['website'])) {
+		wp_send_json_error(['message' => 'Détection de spam.'], 400);
+	}
+
 	// Sanitização
 	$last_name  = sanitize_text_field($_POST['nome'] ?? '');
 	$first_name = sanitize_text_field($_POST['apelido'] ?? '');
@@ -68,6 +72,27 @@ function abw_submit_participant()
 	if ($errors) {
 		wp_send_json_error(['message' => implode(' ', $errors)], 422);
 	}
+
+	// Verificação por email (bloquear duplicados)
+	if (!$errors && $email) {
+		$existing = get_posts([
+			'post_type'      => 'participant',
+			'post_status'    => ['publish', 'pending', 'draft'],
+			'posts_per_page' => 1,
+			'meta_query'     => [
+				[
+					'key'     => 'email',
+					'value'   => $email,
+					'compare' => '=',
+				],
+			],
+		]);
+
+		if (!empty($existing)) {
+			wp_send_json_error(['message' => 'Une participation avec cet e-mail existe déjà.'], 409);
+		}
+	}
+
 
 	// Criar post
 	$post_id = wp_insert_post([

@@ -10,6 +10,7 @@ if (have_posts()) :
         //HEADER
         $header_image = get_field('header_image', $pageid);
         $header_video = get_field('header_video', $pageid);
+        $header_video_mobile = get_field('header_video_mobile', $pageid);
         $header_vw_logo = get_field('header_vw_logo', $pageid);
         $header_links = get_field('header_links', $pageid);
         $header_text_left = get_field('header_text_left', $pageid);
@@ -52,10 +53,7 @@ endif;
 <section id="phase1" data-control="PHASE1">
 
     <section class="header">
-        <video preload="metadata" muted playsinline loop autoplay>
-            <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
-        </video>
-
+  
         <div class="container">
             <div class="menu">
                 <img class="logo mobile" src="<?php echo $header_vw_logo['url']; ?>" />
@@ -66,27 +64,26 @@ endif;
                             <?php if ($item['link']['title'] == 'home') { ?>
                                 <li class="logoli"><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
                             <?php } else { ?>
-                                <li><a href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
+                                <li><a target="<?php echo $item['link']['target']; ?>" class="<?php if($item['link']['url'] == '#open-insc') { ?>js-insc-open<?php } ?>" href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
                             <?php } ?>
                         <?php } ?>
                     </ul>
                 <?php } ?>
             </div>
 
-            <div class="bg">
+            <!--<div class="bg">
                 <img class="image" src="<?php echo $header_image['url']; ?>" />
                 <img class="spacer" src="<?php echo get_bloginfo('template_url'); ?>/images/hero_spacer.png" />
-            </div>
+            </div>-->            
 
-            <!-- <?php if ($header_video) { ?>
-                <div class="bg">
-                    <video preload="metadata" muted playsinline loop autoplay>
-                        <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
-                    </video>
-                </div>
-            <?php } else { ?>
-                
-            <?php } ?>-->
+            <div class="bg">
+                <video class="desktop" preload="metadata" muted playsinline loop autoplay>
+                    <source src="<?php echo $header_video['url'] ?>" type="video/mp4">
+                </video>
+                <video class="mobile" preload="metadata" muted playsinline loop autoplay>
+                    <source src="<?php echo $header_video_mobile['url'] ?>" type="video/mp4">
+                </video>
+            </div>
 
             <div class="infoh">
                 <div class="l">
@@ -112,7 +109,7 @@ endif;
         </div>
     </section>
 
-    <section class="info" >
+    <section class="info">
         <div class="container">
             <div class="l"><?php echo $info_title; ?></div>
             <div class="r">
@@ -175,7 +172,7 @@ endif;
                     <?php echo $pub2_text; ?>
                     <?php if ($pub2_link) { ?>
                         <div class="buttoncontainer">
-                            <a class="button invert white" href="<?php echo $pub2_link['url']; ?>">
+                            <a class="button invert white" href="<?php echo $pub2_link['url']; ?>" target="<?php echo $pub2_link['target']; ?>">
                                 <?php echo $pub2_link['title']; ?>
                             </a>
                         </div>

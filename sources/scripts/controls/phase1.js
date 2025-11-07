@@ -8,7 +8,7 @@ ABW.PHASE1 = {
     },
 
     initEvents() {
-        this.el.find('.header .menu a').on('click', this.gotoArea.bind(this));
+        //this.el.find('.header .menu a').on('click', this.gotoArea.bind(this));
     },
 
     gotoArea(e) {

@@ -3,6 +3,7 @@ global $post;
 $pageid = $post->ID;
 
 $success_image = get_field('success_image', $pageid);
+$success_mobile = get_field('success_mobile', $pageid);
 $success_title = get_field('success_title', $pageid);
 $success_text = get_field('success_text', $pageid);
 ?>
@@ -27,6 +28,7 @@ $success_text = get_field('success_text', $pageid);
             <form action="<?php echo esc_url($ajax_url); ?>" method="post" enctype="multipart/form-data" class="insc-form" novalidate>
                 <input type="hidden" name="action" value="abw_submit_participant">
                 <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('abw_participant_nonce'); ?>">
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
                 <div class="insc-grid">
                     <label>Nom *<input name="nome" required placeholder="Nom"></label>
@@ -94,7 +96,8 @@ $success_text = get_field('success_text', $pageid);
             <path d="M28 2.81879L16.8188 14L28 25.1812L25.1812 28L14 16.8188L2.81879 28L0 25.1812L11.1812 14L0 2.81879L2.81879 0L14 11.1812L25.1812 0L28 2.81879Z" fill="#11192E" style="fill:#11192E;fill:color(display-p3 0.0667 0.0980 0.1804);fill-opacity:1;" />
         </svg>
 
-        <img src="<?php echo $success_image['url']; ?>" alt="" />
+        <img class="desktop" src="<?php echo $success_image['url']; ?>" alt="" />
+        <img class="mobile" src="<?php echo $success_mobile['url']; ?>" alt="" />
         <div class="info">
             <h2><?php echo $success_title; ?></h2>
             <div class="text"><?php echo $success_text; ?></div>

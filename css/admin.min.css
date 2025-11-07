@@ -541,8 +541,3 @@ html.wp-toolbar {
 	background-color: #191a1a;
 	color: #fff;
 }
-
-.mce-edit-area iframe {
-	min-height: auto;
-	height: 140px !important;
-}
