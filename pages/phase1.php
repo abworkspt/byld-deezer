@@ -9,6 +9,7 @@ if (have_posts()) :
 
         //HEADER
         $header_image = get_field('header_image', $pageid);
+        $header_logo = get_field('header_logo', $pageid);
         $header_video = get_field('header_video', $pageid);
         $header_video_mobile = get_field('header_video_mobile', $pageid);
         $header_vw_logo = get_field('header_vw_logo', $pageid);
@@ -75,6 +76,8 @@ endif;
                 <img class="image" src="<?php echo $header_image['url']; ?>" />
                 <img class="spacer" src="<?php echo get_bloginfo('template_url'); ?>/images/hero_spacer.png" />
             </div>-->
+
+            <img class="biglogo" src="<?php echo $header_logo['url']; ?>" />
 
             <div class="bg">
                 <video class="desktop" preload="metadata" muted playsinline loop autoplay>

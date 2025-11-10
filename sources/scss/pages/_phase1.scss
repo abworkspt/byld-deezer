@@ -135,6 +135,19 @@
             }
         }
 
+        .biglogo {
+            left: 50%;
+            position: absolute;
+            top: clamp(165px, 17vw, 270px);
+            transform: translateX(-50%);
+            width: clamp(260px, 36vw, 500px);
+            z-index: 1;
+
+            @media only screen and (max-width: 580px) {
+                top: 105px;
+            }
+        }
+
         .bg {
             width: 100%;
             position: relative;
@@ -342,8 +355,18 @@
                 }
 
                 .text {
+
+                    p {
+                        margin-bottom: 20px;
+                    }
+
                     @media only screen and (max-width: 580px) {
                         text-align: left;
+
+
+                        br {
+                            display: none;
+                        }
                     }
                 }
 

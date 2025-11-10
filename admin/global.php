@@ -55,7 +55,7 @@ add_action('admin_head', 'add_admin_styles');
 add_action( 'login_enqueue_scripts', 'add_admin_styles' );
 
 function add_admin_styles() {
-    echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri() . $GLOBALS['admin_css'] . '" />';
+    echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri() . $GLOBALS['admin_css'] . '?v=1.1" />';
 }
 
 // *******************************************************************************	

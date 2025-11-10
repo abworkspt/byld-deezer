@@ -268,7 +268,15 @@ ABW.INSCPHASE1 = {
     validateEmail() { const v = (this.$email.val() || '').trim(), ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); return { $el: this.$email, valid: ok, msg: ok ? '' : 'Email invalide.' }; },
     validateTel() { const v = (this.$tel.val() || '').trim(), ok = /^0[1-9](?:[ .-]?\d{2}){4}$/.test(v); return { $el: this.$tel, valid: ok, msg: ok ? '' : 'Numéro de téléphone invalide.' }; },
     validateNasc() { const v = (this.$nasc.val() || '').trim(); let ok = !!v, msg = 'Sélectionne ta date de naissance.'; if (ok) { const d = new Date(v); const age = this.calcAge(d); ok = !isNaN(d.getTime()) && age >= 18 && age <= 120; msg = ok ? '' : 'Âge minimum 18 ans.'; } return { $el: this.$nasc, valid: ok, msg }; },
-    validateCidade() { return this._required(this.$cidade, 'Indique ta ville.'); },
+    validateCidade() {
+        const v = (this.$cidade.val() || '').trim();
+        const ok = /^[0-9]{5}$/.test(v);
+        return {
+            $el: this.$cidade,
+            valid: ok,
+            msg: ok ? '' : 'Indique un code postal valide à 5 chiffres.'
+        };
+    },
     validateGrupo() { return this._required(this.$grupo, 'Indique le nom de ton groupe.'); },
     validateEstilo() { return this._required(this.$estilo, 'Indique ton style musical.'); },
     validateInsta() { const v = (this.$insta.val() || '').trim(), ok = /^@?[\w\.]{1,30}$/.test(v); return { $el: this.$insta, valid: ok, msg: ok ? '' : 'Handle Instagram invalide.' }; },

@@ -37,13 +37,13 @@ $success_text = get_field('success_text', $pageid);
                     <label>Numéro de téléphone *<input name="telefone" inputmode="tel" placeholder="06 XX XX XX XX" required></label>
 
                     <label>Ton âge *<input type="date" name="nascimento" lang="fr" required></label>
-                    <label>Ta ville *<input name="cidade" placeholder="ex. Marseille"></label>
+                    <label>Code postal *<input name="cidade" placeholder="ex. 75001" required></label>
 
                     <label>Nom de ton groupe *<input name="grupo" placeholder="Groupe"></label>
                     <label>Style musical *<input name="estilo" placeholder="ex. Rock"></label>
 
                     <label>Compte Instagram *<input name="instagram" placeholder="@Instagram"></label>
-                    <label>Ton son disponible sur Deezer *<input type="url" name="deezer" placeholder="Lien Deezer"></label>
+                    <label>Lien de ta page artiste sur Deezer *<input type="url" name="deezer" placeholder="Lien Deezer"></label>
                 </div>
 
                 <!-- ✅ Nouveau champ ajouté -->
