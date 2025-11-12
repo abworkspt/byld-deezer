@@ -3,7 +3,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
-	<?php //include_once('modules/common/seo.php'); 
+	<?php include_once('modules/common/seo.php'); 
 	?>
 	<!-- Matomo -->
 	<script>

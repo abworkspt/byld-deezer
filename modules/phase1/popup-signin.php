@@ -39,7 +39,7 @@ $success_text = get_field('success_text', $pageid);
                     <label>Ton âge *<input type="date" name="nascimento" lang="fr" required></label>
                     <label>Code postal *<input name="cidade" placeholder="ex. 75001" required></label>
 
-                    <label>Nom de ton groupe *<input name="grupo" placeholder="Groupe"></label>
+                    <label>Nom d'artiste *<input name="grupo" placeholder="Groupe"></label>
                     <label>Style musical *<input name="estilo" placeholder="ex. Rock"></label>
 
                     <label>Compte Instagram *<input name="instagram" placeholder="@Instagram"></label>
@@ -48,9 +48,9 @@ $success_text = get_field('success_text', $pageid);
 
                 <!-- ✅ Nouveau champ ajouté -->
                 <div class="insc-desc">
-                    <h2>DESCRIPTION DE TON GROUPE</h2>
+                    <h2>DESCRIPTION</h2>
                     <p>500 CARACTÈRES MAXIMUM</p>
-                    <textarea name="description_groupe" maxlength="500" placeholder="Décris brièvement ton groupe (maximum 500 caractères)"></textarea>
+                    <textarea name="description_groupe" maxlength="500" placeholder="Décris ton projet musical (500 caractères maximum)"></textarea>
                 </div>
                 <!-- ✅ Fin du champ ajouté -->
 

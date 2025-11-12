@@ -15,7 +15,8 @@
 #adminmenu #toplevel_page_sitepress-multilingual-cms-menu-languages .wp-menu-image::before,
 #adminmenu #toplevel_page_Wordfence .wp-menu-image::before,
 #adminmenu #toplevel_page_wp-mail-smtp .wp-menu-image::before,
-#adminmenu #toplevel_page_tm-menu-main .wp-menu-image::before {
+#adminmenu #toplevel_page_tm-menu-main .wp-menu-image::before,
+#adminmenu #toplevel_page_ai1wm_export .wp-menu-image::before {
 	content: "\f468";
 	color: #bb3333;
 	font-family: dashicons !important;
@@ -26,6 +27,11 @@
 	text-align: center;
 	display: inline-block;
 	background-image: none;
+}
+
+#adminmenu #toplevel_page_ai1wm_export .wp-menu-image::before {
+	content: "\f468" !important;
+	color: #bb3333 !important;
 }
 
 

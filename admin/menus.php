@@ -82,6 +82,9 @@ function change_menu_names() {
 			case 'WP Mail SMTP': 
 				$menu[$key][0] = 'SMTP';
 				break;
+			case 'All-in-One WP Migration': 
+				$menu[$key][0] = 'Migration';
+				break;
 		}
 	}
 	
