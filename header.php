@@ -28,13 +28,8 @@
 </head>
 
 <body data-control="GLOBAL" class="" data-control="GLOBAL">
-
-	<?php
-	/*if (!current_user_can('administrator')) {
-		wp_die('🚧 Ce site est uniquement destiné au développement. Accès réservé aux administrateurs.');
-	}*/
-	?>
-
+	
+	
 	<?php include_once('modules/common/header.php'); ?>
 
 
