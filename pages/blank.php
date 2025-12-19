@@ -8,7 +8,10 @@ if (have_posts()) :
         $pageid = get_the_ID();
         $title = get_the_title($pageid);
         $header_links = get_field('header_links', $pageid);
+        $page_title = get_field('page_title', $pageid);
         $general_dark_logo = get_field('general_dark_logo', 'option');
+
+        $thetitle = $page_title ? $page_title : $title;
     endwhile;
 endif;
 ?>
@@ -34,7 +37,7 @@ endif;
                 </ul>
             <?php } ?>
         </div>
-        <h1><?php echo $title; ?></h1>
+        <h1><?php echo $thetitle; ?></h1>
         <?php echo the_field('content', $pageid); ?>
     </div>
 </section>

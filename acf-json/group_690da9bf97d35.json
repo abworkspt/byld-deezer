@@ -45,6 +45,27 @@
             ]
         },
         {
+            "key": "field_69453226214a5",
+            "label": "Page Title",
+            "name": "page_title",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 2,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_690da9beea2cb",
             "label": "Content",
             "name": "content",
@@ -85,5 +106,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762504351
+    "modified": 1766142526
 }

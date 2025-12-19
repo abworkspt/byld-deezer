@@ -7,6 +7,7 @@ require_once TEMPLATEPATH . '/admin/imagesizes.php';
 require_once TEMPLATEPATH . '/admin/funcs.php';
 require_once TEMPLATEPATH . '/admin/exportparts.php';
 require_once TEMPLATEPATH . '/admin/ajax.php';
+require_once TEMPLATEPATH . '/admin/collumns.php';
 
 
 add_filter( 'ai1wm_exclude_themes_from_export',

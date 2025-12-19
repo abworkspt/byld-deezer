@@ -33,7 +33,7 @@ function change_menu_order( $menu_order ) {
 	array_push($order, 'activity-log-page');
 	array_push($order, 'settings');
 	array_push($order, 'edit.php?post_type=participant');	
-	array_push($order, 'edit.php?post_type=advogado');	
+	array_push($order, 'edit.php?post_type=vote');	
 	array_push($order, 'footer');	
 		
 	array_push( $order, 'edit.php?post_type=page' );	

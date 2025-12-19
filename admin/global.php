@@ -349,4 +349,19 @@ add_filter( 'tiny_mce_before_init', function( $settings ){
 	return $settings;
 } );
 
+
+add_filter('acf/load_field/key=field_692588e6abec1', function ($field) {
+    $field['disabled'] = 1;
+    return $field;
+});
+
+add_filter('acf/load_field/key=field_69258906abec2', function ($field) {
+    $field['disabled'] = 1;
+    return $field;
+});
+
+add_filter('acf/load_field/key=field_6925890aabec3', function ($field) {
+    $field['disabled'] = 1;
+    return $field;
+});
 ?>

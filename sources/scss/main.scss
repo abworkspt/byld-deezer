@@ -8,9 +8,11 @@ $white: #EBE5DC;
 @import 'utils/fonts';
 @import 'common/footer';
 @import 'common/insc-overlay';
+@import 'common/cookiebanner';
 @import 'pages/phase1';
 @import 'pages/phase2';
 @import 'pages/blank';
+@import 'pages/single';
 
 html {
     scroll-behavior: smooth;

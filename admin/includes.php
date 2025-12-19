@@ -11,15 +11,15 @@ function include_scripts_styles() {
 		wp_enqueue_script('gsap', get_template_directory_uri().'/scripts/libs/gsap.min.js', '', '1', true);
 		wp_enqueue_script('scrolltrigger', get_template_directory_uri().'/scripts/libs/ScrollTrigger.min.js', '', '1', true);
 		wp_enqueue_script('scrollsmoother', get_template_directory_uri().'/scripts/libs/ScrollSmoother.min.js', '', '1', true);
-		wp_enqueue_script('main', get_template_directory_uri().'/scripts/main-min.js', '', '1.3', true);
-		//wp_localize_script('main', 'appapi', array('template_path' => get_template_directory_uri(), 'url' => home_url(), 'ajaxurl' => admin_url( 'admin-ajax.php' ),'ajaxnonce' => wp_create_nonce( 'appnonce' )));
+		wp_enqueue_script('main', get_template_directory_uri().'/scripts/main-min.js', '', '1.4', true);
+		wp_localize_script('main', 'appapi', array('template_path' => get_template_directory_uri(), 'url' => home_url(), 'ajaxurl' => admin_url( 'admin-ajax.php' ),'ajaxnonce' => wp_create_nonce( 'appnonce' )));
 		
 		// REMOVE DEFAULT STYLES
 		wp_dequeue_style( 'wp-block-library' );
 		wp_dequeue_style( 'wp-admin' );
 				
 		// TEMPLATE
-		wp_enqueue_style( 'main',  get_template_directory_uri(). '/css/main.min.css',false,'1.9','all');
+		wp_enqueue_style( 'main',  get_template_directory_uri(). '/css/main.min.css',false,'2.1','all');
     }
 }
 

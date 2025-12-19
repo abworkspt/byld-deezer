@@ -9,10 +9,13 @@ if (have_posts()) :
 
         //HEADER
         $header_image = get_field('header_image', $pageid);
+        $header_image_mobile = get_field('header_image_mobile', $pageid);
         $header_logo = get_field('header_logo', $pageid);
+        $header_logo_mobile = get_field('header_logo_mobile', $pageid);
         $header_text = get_field('header_text', $pageid);
         $header_vw_logo = get_field('header_vw_logo', $pageid);
         $header_links = get_field('header_links', $pageid);
+        $header_image_text = get_field('header_image_text', $pageid);
 
         //BANDS
         $bands_title = get_field('bands_title', $pageid);
@@ -35,26 +38,35 @@ endif;
 
     <section class="header">
 
-        <div class="container">
-            <div class="menu">
-                <img class="logo mobile" src="<?php echo $header_vw_logo['url']; ?>" />
-                <?php if ($header_links) { ?>
-                    <ul>
-                        <?php foreach ($header_links as $item) { ?>
+        <img class="bg" src="<?php echo $header_image['url']; ?>" alt="">
+        <img class="bg mobile" src="<?php echo $header_image_mobile['url']; ?>" alt="">
 
-                            <?php if ($item['link']['title'] == 'home') { ?>
-                                <li class="logoli"><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
-                            <?php } else { ?>
-                                <li><a target="<?php echo $item['link']['target']; ?>" class="<?php if ($item['link']['url'] == '#open-insc') { ?>js-insc-open<?php } ?>" href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
-                            <?php } ?>
+        <div class="menu">
+            <img class="logo mobile" src="<?php echo $header_vw_logo['url']; ?>" />
+            <?php if ($header_links) { ?>
+                <ul>
+                    <?php foreach ($header_links as $item) { ?>
+
+                        <?php if ($item['link']['title'] == 'home') { ?>
+                            <li class="logoli"><img class="logo" src="<?php echo $header_vw_logo['url']; ?>" /></li>
+                        <?php } else { ?>
+                            <li><a target="<?php echo $item['link']['target']; ?>" class="<?php if ($item['link']['url'] == '#open-insc') { ?>js-insc-open<?php } ?>" href="<?php echo $item['link']['url']; ?>"><?php echo $item['link']['title']; ?></a></li>
                         <?php } ?>
-                    </ul>
-                <?php } ?>
-            </div>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
+        </div>
 
-            <img class="bg" src="<?php echo $header_image['url']; ?>" alt="">
+        <div class="container">
             <img class="biglogo" src="<?php echo $header_logo['url']; ?>" alt="">
-            <div class="text"><?php echo $header_text; ?></div>
+            <img class="biglogo mobile" src="<?php echo $header_logo_mobile['url']; ?>" alt="">
+            <div class="text">
+                <?php if ($header_image_text) { ?>
+                    <img src="<?php echo $header_image_text['url']; ?>" alt="<?php echo $header_text; ?>" />
+                <?php } else {
+                    echo $header_text;
+                } ?>
+            </div>
         </div>
     </section>
 
@@ -70,6 +82,7 @@ endif;
                         <div class="center">
                             <img src="<?php echo $info['icon']['url']; ?>" alt="<?php echo $info['text']; ?>" />
                             <p><?php echo $info['text']; ?></p>
+                            <img class="mobile" src="<?php echo $info['icon']['url']; ?>" alt="<?php echo $info['text']; ?>" />
                         </div>
                     </div>
                 <?php } ?>
@@ -84,6 +97,9 @@ endif;
             foreach ($winners as $band) {
                 $image = get_field('photos', $band['band']);
                 $name = get_field('group_name', $band['band']);
+                $clss = '';
+
+                if(!$band['band']) $clss = 'hide';
 
                 switch ($count) {
                     case 2:
@@ -109,23 +125,26 @@ endif;
                         break;
                 }
             ?>
-                <div class="band" data-speed="<?php echo $speed; ?>">
+                <div class="band <?php echo $clss; ?>" data-speed="<?php echo $speed; ?>">
                     <div class="image" style="background-image: url(<?php echo $image[0]['url']; ?>);">
                         <img src="<?php echo get_bloginfo('template_url'); ?>/images/winners_spacer.png" alt="" />
                     </div>
                     <div class="info">
                         <h2><?php echo $name; ?></h2>
-                        <svg width="74" height="69" viewBox="0 0 74 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="72.3714" height="68" rx="9.5" stroke="#11192E" style="stroke:#11192E;stroke:color(display-p3 0.0667 0.0980 0.1804);stroke-opacity:1;" />
-                            <g clip-path="url(#clip0_3285_622)">
-                                <path d="M21.6857 36.1409L45.4262 36.1409L36.8384 44.7668L39.1284 47.0569L51.6857 34.4996L39.1284 21.9424L36.8384 24.2325L45.4262 32.8584L21.6857 32.8584L21.6857 36.1409Z" fill="#11192E" style="fill:#11192E;fill:color(display-p3 0.0667 0.0980 0.1804);fill-opacity:1;" />
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_3285_622">
-                                    <rect width="30" height="25.1145" fill="white" style="fill:white;fill-opacity:1;" transform="translate(51.6857 47.0574) rotate(-180)" />
-                                </clipPath>
-                            </defs>
-                        </svg>
+                        <a href="<?php echo get_permalink($band['band']); ?>">
+                            <svg width="74" height="69" viewBox="0 0 74 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="72.3714" height="68" rx="9.5" stroke="#11192E" style="stroke:#11192E;stroke:color(display-p3 0.0667 0.0980 0.1804);stroke-opacity:1;" />
+                                <g clip-path="url(#clip0_3285_622)">
+                                    <path d="M21.6857 36.1409L45.4262 36.1409L36.8384 44.7668L39.1284 47.0569L51.6857 34.4996L39.1284 21.9424L36.8384 24.2325L45.4262 32.8584L21.6857 32.8584L21.6857 36.1409Z" fill="#11192E" style="fill:#11192E;fill:color(display-p3 0.0667 0.0980 0.1804);fill-opacity:1;" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_3285_622">
+                                        <rect width="30" height="25.1145" fill="white" style="fill:white;fill-opacity:1;" transform="translate(51.6857 47.0574) rotate(-180)" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+
                     </div>
                 </div>
             <?php $count++;

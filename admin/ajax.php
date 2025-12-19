@@ -1,6 +1,6 @@
 <?php
 
-$services = array('abw_submit_participant');
+$services = array('abw_submit_participant', 'abw_submit_vote');
 
 foreach ($services as $service) {
     add_action("wp_ajax_nopriv_{$service}", "{$service}");
@@ -156,4 +156,95 @@ function abw_submit_participant()
     }
 
     wp_send_json_success(['post_id' => $post_id]);
+}
+
+function abw_submit_vote()
+{
+
+    // Vérification du nonce
+    if (! isset($_POST['security']) || ! wp_verify_nonce($_POST['security'], 'abw_vote')) {
+        wp_send_json_error(array('message' => 'Requête invalide.'));
+    }
+
+    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
+    $pid   = isset($_POST['pid']) ? intval($_POST['pid']) : 0;
+
+    if (! is_email($email) || ! $pid) {
+        wp_send_json_error(array('message' => 'Données invalides.'));
+    }
+
+    // ---- Vérifier le cookie (1 vote par navigateur pour ce participant) ----
+    $cookie_name = 'voted_' . $pid;
+
+    if (isset($_COOKIE[$cookie_name])) {
+        wp_send_json_error(array(
+            'message' => 'Tu ne peux participer qu\'une seule fois. Pas de replay sur ce coup-là !'
+        ));
+    }
+
+    // Récupération de l'IP
+    $ip = $_SERVER['REMOTE_ADDR'];
+    if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $parts = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        $ip    = trim($parts[0]);
+    }
+
+    // Vérifier si un vote existe déjà pour CE participant
+    // avec ce même email OU cette même IP
+    $query = new WP_Query(array(
+        'post_type'      => 'vote',
+        'posts_per_page' => 1,
+        'meta_query'     => array(
+            'relation' => 'OR',
+            array(
+                'key'     => 'email',
+                'value'   => $email,
+                'compare' => '=',
+            ),
+            array(
+                'key'     => 'ip',
+                'value'   => $ip,
+                'compare' => '=',
+            ),
+        ),
+    ));
+
+    if ($query->have_posts()) {
+        wp_send_json_error(array(
+            'message' => 'Tu ne peux participer qu\'une seule fois. Pas de replay sur ce coup-là !'
+        ));
+    }
+
+    // Créer le post "Vote" avec le titre = email
+    $post_id = wp_insert_post(array(
+        'post_type'   => 'vote',
+        'post_status' => 'publish',
+        'post_title'  => $email, // titre = email
+    ));
+
+    if (is_wp_error($post_id)) {
+        wp_send_json_error(array(
+            'message' => 'Erreur lors de l\'enregistrement du vote.'
+        ));
+    }
+
+    // Sauvegarder les champs ACF
+    update_field('participant_id', $pid,  $post_id);
+    update_field('email',          $email, $post_id);
+    update_field('ip',             $ip,    $post_id);
+
+    // ---- Définir le cookie de vote ----
+    setcookie(
+        $cookie_name,
+        1,
+        time() + YEAR_IN_SECONDS,
+        '/',
+        '',
+        is_ssl(),
+        true
+    );
+
+    wp_send_json_success(array(
+        'message' => 'Vote enregistré avec succès !'
+    ));
 }
