@@ -240,6 +240,26 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_6967755743de2",
+            "label": "Finish Date",
+            "name": "finish_date",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "Y-m-d H:i:s",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "default_to_current_date": 0,
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_691da76ad1224",
             "label": "Bands",
             "name": "",
@@ -609,5 +629,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765897090
+    "modified": 1768390748
 }

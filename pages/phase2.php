@@ -16,6 +16,7 @@ if (have_posts()) :
         $header_vw_logo = get_field('header_vw_logo', $pageid);
         $header_links = get_field('header_links', $pageid);
         $header_image_text = get_field('header_image_text', $pageid);
+        $finish_date = get_field('finish_date', $pageid);
 
         //BANDS
         $bands_title = get_field('bands_title', $pageid);
@@ -34,7 +35,7 @@ if (have_posts()) :
 endif;
 ?>
 
-<section id="phase2">
+<section id="phase2" data-control="PHASE2_COUNTDOWN">
 
     <section class="header">
 
@@ -66,6 +67,10 @@ endif;
                 <?php } else {
                     echo $header_text;
                 } ?>
+            </div>
+            <div class="r">
+                <p>Fin dans votes dans</p>
+                <div class="countdown" data-date="<?php echo $finish_date; ?>"></div>
             </div>
         </div>
     </section>
@@ -99,7 +104,7 @@ endif;
                 $name = get_field('group_name', $band['band']);
                 $clss = '';
 
-                if(!$band['band']) $clss = 'hide';
+                if (!$band['band']) $clss = 'hide';
 
                 switch ($count) {
                     case 2:
