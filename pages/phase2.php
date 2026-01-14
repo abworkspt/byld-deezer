@@ -69,7 +69,7 @@ endif;
                 } ?>
             </div>
             <div class="r">
-                <p>Fin dans votes dans</p>
+                <p>Fin des votes dans</p>
                 <div class="countdown" data-date="<?php echo $finish_date; ?>"></div>
             </div>
         </div>
