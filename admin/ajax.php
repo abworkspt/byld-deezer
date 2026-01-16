@@ -160,6 +160,9 @@ function abw_submit_participant()
 
 function abw_submit_vote()
 {
+    wp_send_json_success(array('message' => 'Votes closed.'));
+
+    /*
 
     // Vérification du nonce
     if (! isset($_POST['security']) || ! wp_verify_nonce($_POST['security'], 'abw_vote')) {
@@ -247,4 +250,5 @@ function abw_submit_vote()
     wp_send_json_success(array(
         'message' => 'Vote enregistré avec succès !'
     ));
+    */
 }

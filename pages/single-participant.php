@@ -52,7 +52,7 @@ endif;
                 <h1><?php echo $hero_title; ?></h1>
                 <div class="text">
                     <p><?php echo $hero_description; ?></p>
-                    <a href="#" class="button js-open-vote">JE VOTE !</a>
+                    <!--<a href="#" class="button js-open-vote">JE VOTE !</a>-->
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@ endif;
                     <span>GENRE MUSICAL</span>
                     <?php echo $musical_genre; ?>
                 </div>
-                <a href="#" class="button invert js-open-vote">JE VOTE !</a>
+                <!--<a href="#" class="button invert js-open-vote">JE VOTE !</a>-->
             </div>
             <div class="row share-list">
                 <p>PARTAGE SUR</p>
