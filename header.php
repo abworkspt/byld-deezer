@@ -3,6 +3,7 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+	<meta name="google-site-verification" content="MGK6ov6AAgNK3TMuOENfiCnoIp4CWTQ1YamZO0-FOB0" />
 	<?php include_once('modules/common/seo.php'); 
 	?>
 	
