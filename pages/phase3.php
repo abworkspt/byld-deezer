@@ -39,7 +39,7 @@ if (have_posts()) :
 endif;
 ?>
 
-<section id="phase3" data-control="PHASE2_COUNTDOWN">
+<section id="phase3" data-control="">
 
     <section class="header">
 
@@ -78,11 +78,11 @@ endif;
             <div class="ytvideos">
                 <?php if ($videos) { ?>
                     <?php foreach ($videos as $video) { ?>
-                        <div class="video">
+                        <div class="video" <?php if($video['anchor']) { ?>id="<?php echo $video['anchor']; ?>"<?php } ?>>
                             <h3><?php echo $video['title']; ?></h3>
                             <div class="video-frame">
                                 <iframe
-                                    src="https://www.youtube.com/embed/<?php echo $video['youtube_id']; ?>"
+                                    src="https://www.youtube.com/embed/<?php echo $video['youtube_id']; ?>?modestbranding=1&rel=0&controls=1"
                                     title="YouTube video player"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -103,6 +103,7 @@
 
                 &.mobile {
                     display: none;
+
                 }
 
                 @media only screen and (max-width: 768px) {
@@ -113,6 +114,12 @@
 
                     &.mobile {
                         display: block;
+
+                        display: block;
+                        transform: translateX(-50%);
+                        bottom: 30px;
+                        top: auto;
+                        max-width: 90%;
                     }
                 }
             }
@@ -139,7 +146,7 @@
             h3 {
                 font-family: 'head bold';
                 text-transform: uppercase;
-                font-size: clamp(25px, 5vw, 32px);
+                font-size: clamp(32px, 5vw, 32px);
                 margin-bottom: 30px;
                 line-height: 100%;
             }
@@ -160,7 +167,7 @@
                 h3 {
                     font-family: 'head bold';
                     text-transform: uppercase;
-                    font-size: clamp(25px, 5vw, 32px);
+                    font-size: clamp(32px, 5vw, 32px);
                     margin-bottom: 25px;
                     line-height: 120%;
                 }

@@ -61,9 +61,26 @@ ABW.GLOBAL = {
 
         if (window.innerWidth <= 768) {
             ABW.smoother.kill();
+            ABW.smoother = null;
+            return;
         }
 
-        window.addEventListener("load", () => ScrollTrigger.refresh());
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+
+            const allowedHashes = ["#aftermovie", "#interview"];
+            const hash = window.location.hash;
+
+            if (allowedHashes.includes(hash)) {
+                const target = document.querySelector(hash);
+
+                if (target && ABW.smoother) {
+                    requestAnimationFrame(() => {
+                        ABW.smoother.scrollTo(target, true, "top top");
+                    });
+                }
+            }
+        });
     },
 
     loadMatomo() {
